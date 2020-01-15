@@ -7,10 +7,24 @@
 <body>
     <form method="post" action="https://request-inspector.glitch.me/">
 
-        <input type="text" name="email" placeholder="Enter your email address">
-        <input type="password" name="password" placeholder="password">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email address"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="password"><br>
+        <textarea name="bio" id="bio" name="bio" col="50" rows="5" placeholder="Tell us about yourself"></textarea>
         <br>
-        <input type="textarea">
+        <h2>How did you hear about us?</h2>
+        <label for="how_did_you_hear_about_us_1">
+            Billboard <input type="radio" id="how_did_you_hear_about_us_1" name="how_did_you_hear_about_us_1" value="billboard">
+        </label>
+        <label for="how_did_you_hear_about_us_2">
+            Radio Advertisement <input type="radio" id="how_did_you_hear_about_us_2" name="how_did_you_hear_about_us_2" value="radio_ad">
+        </label>
+            Internet Advertisement <input type="radio" id="how_did_you_hear_about_us_3" name="how_did_you_hear_about_us_3" value="web_ad">
+        </label>
+        <label for="how_did_you_hear_about_us_4">
+            Other <input type="radio" id="how_did_you_hear_about_us_4" name="how_did_you_hear_about_us_4" value="other">
+        </label>
     </form>
 
 </body>
