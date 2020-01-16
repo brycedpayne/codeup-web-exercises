@@ -18,6 +18,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 300px 300px;
+    font-family: 'Oswald', sans-serif;
+    background-attachment: fixed;
 }
 
 a:link {
@@ -31,4 +33,21 @@ a:hover {
 }
 a:active {
     background-color: #886619;
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: upper-roman;
+}
+
+td {
+    padding-right: 48px;
+    font-size: 85%;
+}
+tr {
+    padding: 15px;
+    font-size: 85%;
 }
