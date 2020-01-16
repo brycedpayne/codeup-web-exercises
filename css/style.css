@@ -2,3 +2,33 @@
     color: purple;
     text-decoration: underline;
 }
+
+header {
+    text-align: center;
+}
+
+.heading {
+    color: #886619;
+    text-decoration: underline;
+}
+
+body {
+    background-color: beige;
+    background-image: url("../img/tree-silhouette-transparent-background-23.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px 300px;
+}
+
+a:link {
+    color: saddlebrown;
+}
+a:visited {
+    color: darkgreen;
+}
+a:hover {
+    color: #1c433f;
+}
+a:active {
+    background-color: #886619;
+}
