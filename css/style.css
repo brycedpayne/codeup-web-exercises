@@ -11,15 +11,18 @@ header {
     color: #886619;
     text-decoration: underline;
 }
-
-body {
-    background-color: beige;
+html {
     background-image: url("../img/tree-silhouette-transparent-background-23.png");
+    background-size: 300px 300px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 300px 300px;
-    font-family: 'Oswald', sans-serif;
     background-attachment: fixed;
+    background-color: beige;
+}
+body {
+    /*opacity: .7;*/
+    background-color: rgba(245,245,220,0.7);
+    font-family: 'Oswald', sans-serif;
 }
 
 a:link {
