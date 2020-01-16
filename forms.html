@@ -5,26 +5,46 @@
     <title>Register With Us</title>
 </head>
 <body>
-    <form method="post" action="https://request-inspector.glitch.me/">
+    <form method="post" action="https://www.elformo.com/forms/12235712-49ed-4520-a1b0-60747fe37fe6">
 
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" placeholder="Enter your email address"><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="password"><br>
+        <br>
+        <label for="bio">Short Bio</label><br>
         <textarea name="bio" id="bio" name="bio" col="50" rows="5" placeholder="Tell us about yourself"></textarea>
         <br>
         <h2>How did you hear about us?</h2>
-        <label for="how_did_you_hear_about_us_1">
-            Billboard <input type="radio" id="how_did_you_hear_about_us_1" name="how_did_you_hear_about_us_1" value="billboard">
+        <label for="how_did_you_hear_about_us_1">Billboard</label>
+        <input type="radio" id="how_did_you_hear_about_us_1" name="how_did_you_hear_about_us_1" value="billboard">
+        <label for="how_did_you_hear_about_us_2">Radio Advertisement</label>
+        <input type="radio" id="how_did_you_hear_about_us_2" name="how_did_you_hear_about_us_2" value="radio_ad">
+        <label for="how_did_you_hear_about_us_3">Internet Advertisement</label>
+        <input type="radio" id="how_did_you_hear_about_us_3" name="how_did_you_hear_about_us_3" value="web_ad">
+        <label for="how_did_you_hear_about_us_4">Other</label>
+        <input type="radio" id="how_did_you_hear_about_us_4" name="how_did_you_hear_about_us_4" value="other">
+
+        <br>
+        <br>
+
+        <label for="browser_type">
+            What web browser are you using:
         </label>
-        <label for="how_did_you_hear_about_us_2">
-            Radio Advertisement <input type="radio" id="how_did_you_hear_about_us_2" name="how_did_you_hear_about_us_2" value="radio_ad">
-        </label>
-            Internet Advertisement <input type="radio" id="how_did_you_hear_about_us_3" name="how_did_you_hear_about_us_3" value="web_ad">
-        </label>
-        <label for="how_did_you_hear_about_us_4">
-            Other <input type="radio" id="how_did_you_hear_about_us_4" name="how_did_you_hear_about_us_4" value="other">
-        </label>
+        <select id="browser_type" name="browser_type" default=" ">
+            <option value="none" selected disabled hidden>
+                    Select an Option
+            </option>
+            <option value="safari">Safari</option>
+            <option value="firefox">Firefox</option>
+            <option value="chrome">Chrome</option>
+            <option value="internet_explorer">Internet Explorer</option>
+            <option value="other">Other</option>
+        </select>
+
+        <br>
+        <button type="submit">Enroll</button>
+
     </form>
 
 </body>
