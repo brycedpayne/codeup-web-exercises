@@ -5,33 +5,40 @@
     <title>Register With Us</title>
 </head>
 <body>
+
+<h2>Register with us</h2>
     <form method="post" action="https://www.elformo.com/forms/12235712-49ed-4520-a1b0-60747fe37fe6">
 
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="Enter your email address"><br>
+        <input type="email" id="email" name="email" placeholder="Enter Email">
+        <br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="password"><br>
+        <input type="password" id="password" name="password" placeholder="Password">
         <br>
-        <label for="bio">Short Bio</label><br>
-        <textarea name="bio" id="bio" name="bio" col="50" rows="5" placeholder="Tell us about yourself"></textarea>
+        <label for="bio">Short Bio:</label><br>
+        <textarea name="bio" id="bio" rows="5" placeholder="Tell us about yourself"></textarea>
         <br>
-        <h2>How did you hear about us?</h2>
-        <label for="how_did_you_hear_about_us_1">Billboard</label>
-        <input type="radio" id="how_did_you_hear_about_us_1" name="how_did_you_hear_about_us_1" value="billboard">
-        <label for="how_did_you_hear_about_us_2">Radio Advertisement</label>
-        <input type="radio" id="how_did_you_hear_about_us_2" name="how_did_you_hear_about_us_2" value="radio_ad">
-        <label for="how_did_you_hear_about_us_3">Internet Advertisement</label>
-        <input type="radio" id="how_did_you_hear_about_us_3" name="how_did_you_hear_about_us_3" value="web_ad">
-        <label for="how_did_you_hear_about_us_4">Other</label>
-        <input type="radio" id="how_did_you_hear_about_us_4" name="how_did_you_hear_about_us_4" value="other">
 
-        <br>
+        <section>
+
+            <h3>How did you hear about us?<h4><em>(check all that apply)</em></h4></h3>
+            <label for="billboard">Billboard</label>
+            <input type="checkbox" id="billboard" name="found_us" value="billboard">
+            <label for="radio">Radio Advertisement</label>
+            <input type="checkbox" id="radio" name="found_us" value="radio_ad">
+            <label for="internet">Internet Advertisement</label>
+            <input type="checkbox" id="internet" name="found_us" value="web_ad">
+            <label for="other">Other</label>
+            <input type="checkbox" id="other" name="found_us" value="other">
+
+        </section>
+
         <br>
 
         <label for="browser_type">
             What web browser are you using:
         </label>
-        <select id="browser_type" name="browser_type" default=" ">
+        <select id="browser_type" name="browser_type">
             <option value="none" selected disabled hidden>
                     Select an Option
             </option>
@@ -41,9 +48,9 @@
             <option value="internet_explorer">Internet Explorer</option>
             <option value="other">Other</option>
         </select>
-
         <br>
-        <button type="submit">Enroll</button>
+        <br>
+        <button type="submit">Register</button>
 
     </form>
 
