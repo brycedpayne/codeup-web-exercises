@@ -1,33 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
-<form action="https://request-inspector.glitch.me">
-
-    <label>Username:<input type="text" id="username" name="username" placeholder="Enter Username" required></label>
-    <br>
-    <label>Email:<input type="text" id="email" name="email" placeholder="Enter Email" required></label>
-    <br>
-    <label>Password:<input type="password" id="password" name="password" placeholder="Enter Password" required></label>
-    <br>
-    <label>Keep me signed in for 2 weeks?<input type="checkbox" checked></label>
-    <br>
-    <button type="submit">Login</button>
-
-</form>
-
-<!--username, make it required, ensure the cursor is inside this input on page load-->
-<!--.email., make it required-->
-<!--password, make it required-->
-<!--a checkbox that says "Keep me logged in for 2 weeks" and load the page with the checkbox checked-->
-<!--a button that submits the form with the text of "Login"-->
-
+<main>
+    <form action="#">
+        <fieldset class="width-80">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <button class="btn btn-block">Login</button>
+        </fieldset>
+    </form>
+</main>
 </body>
 </html>
