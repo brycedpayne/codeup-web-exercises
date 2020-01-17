@@ -4,4 +4,46 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
+    --bg-info: #CDDEFF;
+    --bg-success: #CFF3DA;
+    --bg-warning: #FCFAC9;
+    --bg-error: #FAD2D7;
+    --text-info: darkblue;
+    --text-success: darkgreen;
+    --text-warning: darkgoldenrod;
+    --text-error: darkred;
+}
+.message {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.message-info {
+    /*background-color: #CDDEFF;*/
+    /*color: darkblue;*/
+    color: var(--text-info);
+    background-color: var(--bg-info);
+}
+
+.message-success {
+    /*background-color: #CFF3DA;*/
+    /*color: darkgreen;*/
+    background-color: var(--bg-success);
+    color: var(--text-success);
+}
+
+.message-warning {
+    /*background-color: #FCFAC9;*/
+    /*color: darkgoldenrod;*/
+    background-color: var(--bg-warning);
+    color: var(--text-warning);
+}
+
+.message-error {
+    /*background-color: #FAD2D7;*/
+    /*color: darkred;*/
+    color: var(--text-error);
+    background-color: var(--bg-error);
 }
