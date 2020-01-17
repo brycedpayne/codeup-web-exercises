@@ -12,9 +12,11 @@ body, html {
     --text-success: darkgreen;
     --text-warning: darkgoldenrod;
     --text-error: darkred;
+    --box_bord: 1px solid lightgrey;
 }
 .message {
-    border: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;*/
+    border: var(--box_bord);
     border-radius: 5px;
     margin: 5px;
     padding: 5px;

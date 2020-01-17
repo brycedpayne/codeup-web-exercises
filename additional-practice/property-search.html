@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Property Search</title>
+</head>
+<body>
+    <h1>Let us help find your next home!</h1>
+    <h3>What are you looking for in a home?</h3>
+
+    <form action="https://request-inspector.glitch.me">
+
+        <label>Property type:<input type="text" id="prop_type" name="prop_type" placeholder="Property Type"></label><br>
+        <label>Sq. Footage:<input type="number" id="sq_ft_min" name="sq_ft_min" placeholder="min.">- <input type="number" id="sq_ft_max" name="sq_ft_max" placeholder="max"> sq.ft.</label><br>
+        <label>Min. Price:<input type="number" id="min_price" name="min_price" placeholder="$"></label>
+        <label>Max Price:<input type="number" id="max_price" name="max_price" placeholder="$"></label><br>
+        <label>Zipcode: <input type="number" id="zip" name="zip" placeholder="Enter Zip"></label><br>
+        <label>Number of bedrooms:
+            <select>
+                <option value="eff_loft">Efficiency/Loft</option>
+                <option value="1_br">1 Bedroom</option>
+                <option value="2_br">2 Bedroom</option>
+                <option value="3_plus_br">3+ Bedrooms</option>
+            </select></label><br>
+        <label>Number of bathrooms:</label>
+        <select>
+            <option value="1_bath">1 Bedroom</option>
+            <option value="2_bath">2 Bedroom</option>
+            <option value="3_plus_bath">3+ Bedrooms</option>
+        </select></label><br>
+        <label>
+            Appliances: Gas<input type="radio" id="gas" name="appliance_type" value="gas"> Electric<input type="radio" id="electric" name="appliance_type" value="electric"> Either<input type="radio" id="either" name="appliance_type" value="either">
+        </label><br>
+
+        <button type="submit">Search Now</button>
+
+
+        <!--        Add all the appropriate inputs you would need to conduct a property search:-->
+
+<!--        Property type-->
+<!--        square footage-->
+<!--        min_price-->
+<!--        max_price-->
+<!--        zipcode-->
+<!--        number of bedrooms-->
+<!--        number of bathrooms-->
+<!--        etc...-->
+<!--        The submit button's text should say "Search now"-->
+
+    </form>
+
+</body>
+</html>
