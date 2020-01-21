@@ -72,7 +72,6 @@ a {
 }
 .nav-item {
     padding: 1.5em;
-    /*float: left;*/
     display: inline-block;
 }
 .profile-image {
@@ -104,13 +103,13 @@ a {
 .media {
     width: 100%;
     background-color: var(--light-bg);
-    border-bottom: 1px;
+    border-bottom: 1px solid;
     border-color: var(--separator-color);
     padding: .5em;
     overflow: auto;
 }
 .media-image {
-    width: 50px;
+    max-width: 50px;
     float: left;
     margin-top: 1.33em;
 }
@@ -120,6 +119,7 @@ a {
 }
 .profile-items {
     padding: 0;
+    list-style: none;
 }
 .profile-entry {
     margin: .5em;

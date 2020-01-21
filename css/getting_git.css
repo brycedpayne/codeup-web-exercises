@@ -1,35 +1,58 @@
 body {
     margin: 0;
+    font-family: system-ui,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 .header {
     background-color: #CF4546;
     margin: 0;
-    height: 400px;
+    height: 480px;
 }
 .logo {
-    width: 600px;
+    width: 800px;
     text-align: center;
     color: white;
     /*float: left;*/
     /*z-index: 2;*/
     margin: auto;
+    position: relative;
+    top: 92px;
+}
+.logo img {
+    width: 600px;
 }
 .login {
     float: right;
     position: absolute;
-    top: .7em;
+    top: .5em;
     right: 1em;
     background-color: #CF4546;
-    height: 30px;
-    width: 60px;
+    height: 36px;
+    width: 77px;
     border-radius: .25rem;
     border: 1px solid white;
     /*margin: .7em 1em;*/
     text-align: center;
     color: white;
-    font-weight: bold;
+    font-size: 1em;
 }
 .login:hover {
     background-color: white;
     color: #CF4546;
+}
+.logo h2 {
+    font-size: 1.875rem;
+    font-weight: 300;
+}
+code {
+    word-spacing: -.25em;
+    font-size: 1.875rem;
+}
+.git_started {
+    margin: 0 auto;
+    font-size: .875rem;
+    text-align: center;
+    color: #3D4752;
+}
+.buy_now {
+    color: #b8c2cc;
 }
