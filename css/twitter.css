@@ -112,11 +112,11 @@ a {
 .media-image {
     width: 50px;
     float: left;
-    margin: 1.33em;
+    margin-top: 1.33em;
 }
 .media-body {
     float: left;
-    width: calc(100% - (50px + 1.33em));
+    width: calc(100% - 50px);
 }
 .profile-items {
     padding: 0;

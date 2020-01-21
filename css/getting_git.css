@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+.header {
+    background-color: #CF4546;
+    margin: 0;
+    height: 400px;
+}
+.logo {
+    width: 600px;
+    text-align: center;
+    color: white;
+    /*float: left;*/
+    /*z-index: 2;*/
+    margin: auto;
+}
+.login {
+    float: right;
+    position: absolute;
+    top: .7em;
+    right: 1em;
+    background-color: #CF4546;
+    height: 30px;
+    width: 60px;
+    border-radius: .25rem;
+    border: 1px solid white;
+    /*margin: .7em 1em;*/
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.login:hover {
+    background-color: white;
+    color: #CF4546;
+}

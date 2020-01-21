@@ -1,0 +1,386 @@
+
+ * {
+     margin              : 0;
+     padding             : 0;
+     border              : 0;
+     -webkit-box-sizing  : border-box;
+     box-sizing          : border-box;
+ }
+body, html {
+    height              : 100%;
+}
+body {
+    width               : 100%;
+    height              : 100%;
+    min-height          : 100vh;
+    font-family         : ReithSans, Arial, Helvetica, sans-serif;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-orient  : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction  : column;
+    flex-direction      : column;
+}
+a {
+    color               : #4945b6;
+    text-decoration     : none;
+}
+a:hover,
+a:focus {
+    text-decoration     : underline;
+}
+.content {
+    -webkit-box-flex    : 1;
+    -ms-flex-positive   : 1;
+    flex-grow           : 1;
+    height              : 100%;
+    width               : 100%;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+}
+.main-content {
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-align   : center;
+    -ms-flex-align      : center;
+    align-items         : center;
+    -webkit-box-pack    : center;
+    -ms-flex-pack       : center;
+    justify-content     : center;
+    -webkit-box-orient  : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction  : column;
+    flex-direction      : column;
+    margin              : 3em 0;
+    width               : 100%;
+    text-align          : center;
+}
+.center {
+    margin              : 0 auto;
+    max-width           : 976px;
+    /* Same width as BBC home */
+    padding             : 0 1em;
+}
+#navigation {
+    height              : 100%;
+}
+#navigation>.inner {
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-orient  : horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction  : row;
+    flex-direction      : row;
+    -webkit-box-pack    : justify;
+    -ms-flex-pack       : justify;
+    justify-content     : space-between;
+}
+#navigation>.inner>.links {
+    float               : right;
+    /*For IE*/
+    padding-top         : .25em;
+    /*For IE*/
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-orient  : horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction  : row;
+    flex-direction      : row;
+    -webkit-box-align   : center;
+    -ms-flex-align      : center;
+    align-items         : center;
+}
+#navigation>.inner>.links>a {
+    color               : black;
+    text-decoration     : none;
+    border-right        : 1px solid #ccc;
+    line-height         : 2em;
+    padding             : .462em 12px .308em;
+    padding-bottom      : 0.308em;
+    border-bottom       : .308em solid transparent;
+}
+#navigation>.inner>.links>a:first-child {
+    border-left         : 1px solid #ccc;
+}
+.red:hover,
+.red:focus {
+    border-bottom       : .308em solid #bb1919 !important;
+}
+.yellow:hover,
+.yellow:focus {
+    border-bottom       : .308em solid #ffd230 !important;
+}
+.light-blue:hover,
+.light-blue:focus {
+    border-bottom       : .308em solid #8ce !important;
+}
+.dark-blue:hover,
+.dark-blue:focus {
+    border-bottom       : .308em solid #007bc7 !important;
+}
+.pink:hover,
+.pink:focus {
+    border-bottom       : .308em solid #f54997 !important;
+}
+.black:hover,
+.black:focus {
+    border-bottom       : .308em solid #000 !important;
+}
+.orange:hover,
+.orange:focus {
+    border-bottom       : .308em solid #ff4900 !important;
+}
+#navigation>.inner>.logo>a>img {
+    height              : 24.5px;
+}
+#navigation>.inner>.logo {
+    width               : 6em;
+    float               : left;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-orient  : horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction  : row;
+    flex-direction      : row;
+    -webkit-box-align   : center;
+    -ms-flex-align      : center;
+    align-items         : center;
+    padding             : .308em 1em 0 0;
+}
+.header {
+    -ms-flex-negative   : 0;
+    flex-shrink         : 0
+}
+.nav {
+    width               : 100%;
+    min-height          : 40px;
+    background          : #fff;
+    font-size           : 0.80em;
+    font-weight         : 700;
+}
+.sub-navigation {
+    /*background          : #4945b6;*/
+    width               : 100%;
+}
+.sub-navigation>.inner {
+    padding             : 2.5em 1em;
+}
+.sub-navigation>.inner>.title {
+    font-size           : 1.5em;
+    /*color               : #fff;*/
+    font-weight         : 400;
+}
+h1 {
+    color               : #333;
+    font-size           : 1.2em;
+    padding             : .5em;
+}
+.main>.text {
+    font-size           : .9em;
+    padding             : 0 1em 1em 1em;
+    max-width           : 500px;
+}
+.text>p {
+    padding             : 0 0 1em 0;
+    line-height         : 1.5em;
+    color               : #464646;
+    position            : relative;
+    text-align          : center;
+}
+/* Search */
+.search-container {
+    background          : #e4e4e4;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    height              : 36px;
+    -webkit-box-pack    : justify;
+    -ms-flex-pack       : justify;
+    justify-content     : space-between;
+    -webkit-box-align   : center;
+    -ms-flex-align      : center;
+    align-items         : center;
+    margin              : 0 1em 10px 1em;
+}
+input[type=text] {
+    height              : 100%;
+    padding             : 6px 7px;
+    font-size           : 18px;
+    border              : none;
+    background          : #e4e4e4;
+    color               : #333;
+    width               : 86%;
+}
+.search-container button {
+    height              : 36px;
+    width               : 36px;
+    background          : #e4e4e4;
+    border              : none;
+    cursor              : pointer;
+    position            : relative;
+    -webkit-appearance  : button;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : flex;
+    -webkit-box-pack    : center;
+    -ms-flex-pack       : center;
+    justify-content     : center;
+    -webkit-box-align   : center;
+    -ms-flex-align      : center;
+    align-items         : center;
+}
+button span.search-icon {
+    background          : url("data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAkRJREFUWAntlr9rFEEUx3Nimmh1gYAIMoWSIoSARBBUThs7baws8zeYKqmCYGUn+E+IImiKBOHWSrAQImKhoCOExMZCU4iFxs/3LnvOPWbvZn9wlQ8+7LyZ977zZm/37bWmxts8ITfgOjg4BbJ9+Axb8Aw+QqO2jJrEDxNREYtQ246j8ABSNw7jfpN3D1pQydpkZRCKVhk/QWMGStk00RnENnzO/Aqcg5NHaKw5rcVy9JMcg2R7SKQVesvchQQFxSjW5t9PyO2FXIwkbzJ3IlXgKFY5YRF6Js6naHRNok5TZvN8D+XsGK0sXyy6LpkEnSDlthfp6cR/jKZ6SaGtsxLeNj1Ude0pAqHmRpGgnlJ1uNAeh07F8SOTp2es0L6wElar16uunUEg1NwbJfjLBOs9r2vqKeFz8LNIsFSjKBKJzEu3FcyH42C636m+Ds38+9qZ6VLuaRP9zfgDV5X6gdcfXDZ+FfeqSXpv/IGrArYHXn9wy/hV3Nsm6ZXxh9ymG1EH9fAN0HhhaMeI0zVJVVvxLDqfjNbI0+e1FH2MyrySc4hpM3v6K/km466xz/E7ki6NS2T9JtiGpkK+g4MkU/PIwJ5A/ku4AyrmLKhbdmAN3kAsJ5/zrDtIsjZRGeTJTV09mg6SrM6fUhX8A2KFe+YdJNsykWX+lr8m/ho48NBIEehMzcMqqGF9gAPQx2UXXsBdUC8JzeF4aKwItEqbI8PD/yJG3YmMOzQRc+ziIfw55DuYmDl28qAidHUwcXPsmIGuPfsL/C8pDob3tKcAAAAASUVORK5CYII=") no-repeat;
+    width               : 20px;
+    height              : 20px;
+    background-size     : 20px 20px;
+}
+/* Footer */
+.footer {
+    background          : #4c4c4c;
+    color               : #fff;
+    font-size           : 12px;
+    padding             : 1.5em 0;
+    position            : relative;
+    -ms-flex-negative   : 0;
+    flex-shrink         : 0;
+}
+.footer-content>p>a {
+    color               : #fff;
+    font-weight         : 700;
+}
+.footer>.inner>.link-bar {
+    margin              : 0 0 23px 0;
+}
+.footer>.inner>div>.links {
+    list-style          : none;
+    height              : 100%;
+}
+.footer>.inner>div>.links>li {
+    text-decoration     : none;
+    font-size           : 12px;
+    display             : inline;
+    margin              : 10px 19px 0 0;
+}
+.footer>.inner>div>.links>li:last-child {
+    margin-right        : 0;
+}
+.footer>.inner>div>.links>li>a {
+    color               : #fff;
+    display             : inline-block;
+}
+@media only screen and (max-width: 750px) {
+    .footer-content {
+        padding-top         : 0;
+    }
+    .footer>.inner>div>.links {
+        display             : inherit;
+        padding-left        : 0;
+    }
+    .footer>.inner>div>.links>li {
+        display             : inline-block;
+    }
+}
+@media only screen and (max-width: 490px) {
+    #navigation>.inner>.links>a:nth-of-type(6) {
+        display             : none;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .sub-navigation>.inner {
+        padding             : 2em 1em;
+    }
+    .sub-navigation>.inner>.title {
+        font-size           : 1.2em;
+    }
+    #navigation>.inner>.links>a:nth-of-type(5) {
+        display             : none;
+    }
+}
+@media only screen and (max-width: 360px) {
+    #navigation>.inner>.links>a:nth-of-type(4) {
+        display             : none;
+    }
+}
+@media only screen and (max-width: 280px) {
+    #navigation>.inner>.links>a:nth-of-type(3) {
+        display             : none;
+    }
+}
+@media only screen and (max-width: 210px) {
+    #navigation>.inner>.links>a:nth-of-type(2) {
+        display             : none;
+    }
+}
+@media only screen and (max-height: 650px) {
+    .content {
+        display             : block;
+    }
+}
+/* Font */
+@font-face {
+    font-family
+    :
+
+            "ReithSans"
+;
+
+
+    src
+    :
+
+            url("https://gel.files.bbci.co.uk/r2.302/BBCReithSans_W_Rg.woff2")
+
+            format("woff2")
+            ,
+
+            url("https://gel.files.bbci.co.uk/r2.302/BBCReithSans_W_Rg.woff")
+
+            format("woff")
+;
+
+
+    font-display
+    :
+
+            swap
+}
+@font-face {
+    font-family
+    :
+
+            "ReithSans"
+;
+
+
+    src
+    :
+
+            url("https://gel.files.bbci.co.uk/r2.302/BBCReithSans_W_Bd.woff2")
+
+            format("woff2")
+            ,
+
+            url("https://gel.files.bbci.co.uk/r2.302/BBCReithSans_W_Bd.woff")
+
+            format("woff")
+;
+
+
+    font-display
+    :
+
+            swap
+;
+
+
+    font-weight
+    :
+
+            700
