@@ -1,0 +1,63 @@
+/*<!--The navbar must have the following:-->*/
+
+/*<!--box-sizing: border-box for all elements-->*/
+/*<!--link text, the logo, and icons are surrounded by anchor tags-->*/
+/*<!--links turn blue on hover-->*/
+/*<!--anchor tags are display: inline-block-->*/
+/*<!--clickable area of links immediately flow from one link to the next (padding will help achieve this)-->*/
+/*<!--Google Fonts used for logo and link text ("Montserrat" and "Work Sans", respectively)-->*/
+/*<!--the "Logo" text is 3em with .2em of padding above and below-->*/
+/*<!--no explicit height given to the navbar-->*/
+/*<!--default styling is removed as needed from the body, unordered list and anchor tag elements-->*/
+/*<!--logo is absolutely positioned to completely center text on the navbar-->*/
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    background-color: lightgray;
+    height: 4em;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: "Work Sans";
+}
+
+li {
+    margin: .5em;
+    z-index: 2;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+.logo {
+    margin: 0;
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    display: flex;
+    z-index: auto;
+    text-align: center;
+}
+
+.logo a {
+    font-family: "Montserrat";
+    font-size: 3em;
+    margin: auto;
+    padding-bottom: .2em;
+    padding-top: .2em;
+    }
+
+li:nth-child(6) {
+    margin-left: auto;
+}
