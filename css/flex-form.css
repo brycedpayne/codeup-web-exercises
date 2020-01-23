@@ -14,6 +14,8 @@ body {
 
 .puppiness {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0;
 }
@@ -52,10 +54,15 @@ body {
 /*flex solution*/
 .cover {
     /* flex container */
+    display: flex;
+    justify-content: center;
 }
 .flex-form {
     /* flex items */
+    margin: auto;
+    display: flex;
 }
 .destination {
     /* bigger item */
+    flex-basis: 15em;
 }
