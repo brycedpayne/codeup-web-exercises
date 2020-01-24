@@ -1,0 +1,78 @@
+main{
+    border: 1px solid grey;
+    padding: 5px;
+}
+.yellow {
+    background: #FDDA00;
+}
+.green {
+    background: #9BCE0A;
+}
+.layout_outer {
+    height: 100vh;
+    width: 1000px;
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.layout_inner {
+    grid-area: 2/2/6/6;
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+#header{grid-area: 1/1/2/6}
+#nav{grid-area: 2/1/6/2}
+#art{grid-area: 1/1/5/5}
+#footer{grid-area: 5/1/6/6}
+#ads{grid-area: 1/5/5/6}
+
+.layout_outer2 {
+    height: 100vh;
+    width: 1000px;
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.layout_inner2 {
+    grid-area: 2/1/6/6;
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+#header2{grid-area: 1/1/2/6}
+#nav2{grid-area: 1/1/5/2}
+#footer2{grid-area: 5/1/6/6}
+#art2{grid-area: 1/2/4/6}
+#ads2{grid-area: 4/2/5/6}
+
+.layout {
+    height: 100vh;
+    width: 1000px;
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#one{grid-area: 1/1/4/5}
+#two{grid-area: 4/1/8/2}
+#three{grid-area: 4/2/5/3}
+#four{grid-area: 4/3/5/5}
+#five{grid-area: 5/2/6/4}
+#six{grid-area: 5/4/6/5}
+#seven{grid-area: 6/2/7/3}
+#eight{grid-area: 6/3/7/4}
+#nine{grid-area: 6/4/7/5}
+#ten{grid-area: 7/2/8/5}

@@ -2,15 +2,16 @@
     height: 500px;
     width: 500px;
     border: 3px solid black;
+    box-shadow: 10px 10px 10px gray;
 }
 {
     box-sizing: border-box;
 }
 main {
-    background: lightgreen;
     display: inline-grid;
     grid-template-rows: repeat(8 , 1fr);
     grid-template-columns: repeat(8 , 1fr);
+    border: 2px solid black;
 }
 main div {
     font-size: 2em;
