@@ -52,23 +52,30 @@
 
             // arrayLength([1,2,3,4]);
             //
-            // function seven() {
-            //     return 7;
+            function seven() {
+                return 7;
             // }
             //
             // console.log(seven());
 
-            pets=['dog','fish','bird']
-            numbers=[1,4,5,2]
+            // pets=['dog','fish','bird']
+            // numbers=[1,4,5,2]
 
             function firstItem(x) {
                 console.log(x[0]);
                 return x[0];
             }
 
-            firstItem(pets);
-            firstItem(numbers);
+            // firstItem(pets);
+            // firstItem(numbers);
 
+            function determineType(data) {
+                return typeof(data);
+            }
+
+            console.log(determineType(7));
+            console.log(determineType(true));
+            console.log(determineType("hello"));
 
 
         </script>
