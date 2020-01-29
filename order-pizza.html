@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+<!--nav bar start-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pizza World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link active" href="#">Order Online<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search for store near you
+                    </button>
+                </form>
+            </li>
+        </ul>
+        <span class="nav-item"><a class="nav-link text-secondary" href=""><i class="fa fa-user"></i> Sign Up</a></span>
+    </div>
+</nav>
+<!--end nav bar-->
+
+<!--start container-->
+<div class="container">
+
+    <!--start jumbotron-->
+    <div class="jumbotron d-none d-sm-block px-0" id="main-jumbotron">
+        <div class="container" id="jumbotron-container">
+            <h1 class="display-4 px-auto mx-auto">Welcome to Pizza World!</h1>
+        </div>
+    </div>
+    <!--end jumbotron-->
+
+    <h2>Build your own pizza!</h2>
+
+    <!--start nav tabs-->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="size-and-crust-tab" data-toggle="tab" role="tab" href="#size-and-crust"><span
+                    class="badge badge-pill badge-secondary">1</span> Size and Crust</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="cheese-and-sauce-tab" data-toggle="tab" role="tab" href="#cheese-and-sauce"><span
+                    class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" role="tab" href="#toppings"><span
+                    class="badge badge-pill badge-secondary">3</span> Toppings</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+
+        <!--            external card 1-->
+        <div class="tab-pane fade show active" id="size-and-crust" role="tabpanel" aria-labelledby="size-and-crust-tab">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Featured
+                </div>
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+
+                        <!--                    internal card 1-->
+                        <div class="card">
+                            <div class="card-header">
+                                Hand Tossed
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Small (10")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck2">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--                    internal card 1 end-->
+                        <br>
+                        <!--                    internal card 2-->
+                        <div class="card">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck3">
+                                        <label class="form-check-label" for="defaultCheck3">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck4">
+                                        <label class="form-check-label" for="defaultCheck4">
+                                            Large (14")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--                    internal card 2 end-->
+
+                    </li>
+
+                    <li class="list-group-item bg-light text-right">
+                        <a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Cheese and Sauce
+                        ></a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!--            external card 1 end-->
+
+        <!--            external card 2-->
+
+        <div class="tab-pane fade" id="cheese-and-sauce" role="tabpanel" aria-labelledby="cheese-and-sauce-tab">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Featured
+                </div>
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+
+                        <!--                    internal card 1-->
+                        <div class="card">
+                            <div class="card-header">
+                                Cheese
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Small (10")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck2">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--                    internal card 1 end-->
+                        <br>
+                        <!--                    internal card 2-->
+                        <div class="card">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck3">
+                                        <label class="form-check-label" for="defaultCheck3">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
+                                               id="defaultCheck4">
+                                        <label class="form-check-label" for="defaultCheck4">
+                                            Large (14")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--                    internal card 2 end-->
+
+                    </li>
+
+                    <li class="list-group-item bg-light text-right"><a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab"> < Size and Crust
+                        </a><a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Toppings >
+                        </a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+            <div class="card">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end nav tabs-->
+
+</div>
+<!--end container-->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
