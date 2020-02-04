@@ -22,10 +22,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link active" href="#">Order Online<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Menu</a>
@@ -33,12 +33,12 @@
             <li class="nav-item">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search for store near you
-                    </button>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search for store near you</button>
                 </form>
             </li>
         </ul>
-        <span class="nav-item"><a class="nav-link text-secondary" href=""><i class="fa fa-user"></i> Sign Up</a></span>
+
+        <a class="nav-link text-secondary" href=""><i class="fa fa-user"></i> Sign Up</a>
     </div>
 </nav>
 <!--end nav bar-->
@@ -144,8 +144,9 @@
                     </li>
 
                     <li class="list-group-item bg-light text-right">
-                        <a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Cheese and Sauce
-                        ></a>
+                        <a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Cheese and
+                            Sauce >
+                        </a>
                     </li>
 
                 </ul>
@@ -159,7 +160,7 @@
         <div class="tab-pane fade" id="cheese-and-sauce" role="tabpanel" aria-labelledby="cheese-and-sauce-tab">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    Featured
+                    Choose Cheese and Sauce
                 </div>
                 <ul class="list-group list-group-flush">
 
@@ -170,79 +171,134 @@
                             <div class="card-header">
                                 Cheese
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                                <li class="list-group-item">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
-                                               id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Small (10")
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
-                                               id="defaultCheck2">
-                                        <label class="form-check-label" for="defaultCheck2">
-                                            Medium (12")
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="form-group">
+
+                                <ul class="list-group list-group-flush">
+
+                                    <li class="list-group-item">
+                                        <label for="exampleFormControlSelect1">How Much?</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Light</option>
+                                            <option>Normal</option>
+                                            <option>Extra</option>
+                                            <option>Double</option>
+                                        </select>
+                                    </li>
+                            </div>
                         </div>
                         <!--                    internal card 1 end-->
                         <br>
                         <!--                    internal card 2-->
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Sauce
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
-                                <li class="list-group-item">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
-                                               id="defaultCheck3">
-                                        <label class="form-check-label" for="defaultCheck3">
-                                            Medium (12")
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" value="" name="crust_radio"
-                                               id="defaultCheck4">
-                                        <label class="form-check-label" for="defaultCheck4">
-                                            Large (14")
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="form-group">
+
+                                <ul class="list-group list-group-flush">
+
+                                    <li class="list-group-item">
+                                        <label for="exampleFormControlSelect1">What Type?</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Tomato Sauce</option>
+                                            <option>Marinara Sauce</option>
+                                            <option>BBQ Sauce</option>
+                                            <option>Alfredo Sauce</option>
+                                        </select>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <label for="exampleFormControlSelect1">How Much?</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Light</option>
+                                            <option>Normal</option>
+                                            <option>Extra</option>
+                                        </select>
+                                    </li>
+                            </div>
                         </div>
                         <!--                    internal card 2 end-->
-
                     </li>
 
-                    <li class="list-group-item bg-light text-right"><a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab"> < Size and Crust
-                        </a><a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Toppings >
-                        </a></li>
+                    <li class="list-group-item bg-light text-right">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary">< Size and Crust</button>
+                            <button type="button" class="btn btn-primary">Toppings ></button>
+                        </div>
+                    </li>
 
                 </ul>
             </div>
         </div>
+        <!--        end external card 2-->
+
+        <!--        start external card 3-->
 
         <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
             <div class="card">
-                <div class="card-header">
-                    Featured
+                <div class="card-header bg-primary text-white">
+                    Choose Cheese and Sauce
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+
+                        <!--                    internal card 1-->
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!--                    internal card 1 end-->
+                        <br>
+                        <!--                    internal card 2-->
+
+                        <!--                    internal card 2 end-->
+                    </li>
+
+                    <li class="list-group-item bg-light text-right">
+                        <a href="#cheese-and-sauce" class="btn btn-primary" data-toggle="tab" role="tab">Checkout >
+                        </a>
+                    </li>
+
+                </ul>
             </div>
         </div>
     </div>
