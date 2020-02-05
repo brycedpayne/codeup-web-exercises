@@ -32,9 +32,9 @@ var helloMessage = sayHello("Bryce")
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var name = "Bryce Payne"
+var myName = "Bryce Payne"
 
-// console.log(sayHello(name));
+// console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -80,10 +80,10 @@ function isTwo(num) {
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-// function calculateTip(tipPercent, totalBill) {
-//     var tipAmount = totalBill * tipPercent;
-//     return tipAmount;
-// }
+function calculateTip(tipPercent, totalBill) {
+    var tipAmount = totalBill * tipPercent;
+    return tipAmount;
+}
 //
 // console.log(calculateTip(0.20, 20));
 // console.log(calculateTip(0.25, 25.50));
@@ -96,8 +96,8 @@ function isTwo(num) {
  * then display the dollar amount they should tip
  */
 
-// var tipInput = Number(prompt("What percentage would you like to tip?"));
-// var billInput = Number(prompt("How much was your bill?"));
+// var tipInput = parseFloat(prompt("What percentage would you like to tip?"));
+// var billInput = parseFloat(prompt("How much was your bill?"));
 //
 // var tipOutput = calculateTip(tipInput, billInput)
 //
@@ -117,8 +117,8 @@ function isTwo(num) {
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-function applyDiscount(funcPrice, funcDiscount) {
-    var discPrice = funcPrice - (funcPrice * funcDiscount);
+function applyDiscount(funcPrice, funcDiscountPerc) {
+    var discPrice = funcPrice - (funcPrice * funcDiscountPerc);
     return discPrice;
 }
 
