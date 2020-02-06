@@ -362,22 +362,33 @@ function cubeRoot(n) {
 // Write a function named invertSign(number) that returns a negative version of a postive number, a positve version of negative, and false for all else.
 
 function invertSign(number) {
-    if (number === !isNaN || number !== 0) {
-        return number * -1
-    } else {
-        return false;
-    }
+    return (typeof number === 'number' ? number * -1 : false)
 }
 
-console.log(invertSign(-1));
-console.log(invertSign(1));
-console.log(invertSign("string"));
-console.log(invertSign(true));
-
+// console.log(invertSign(-1));
+// console.log(invertSign(1));
+// console.log(invertSign("string"));
+// console.log(invertSign(true));
 
 
 // Write a function named degreesToRadians(number)
+
+function degreesToRadians(number) {
+    return number * Math.PI / 180;
+}
+
+// console.log(degreesToRadians(90));
+// console.log(degreesToRadians(180));
+// console.log(degreesToRadians(270));
+
 // Write a function named radiansToDegrees(number)
+
+function radiansToDegrees(number) {
+    return  number * (180/math.PI);
+}
+
+
+
 // Make a function named isBlank(input) that determines if a given input is spaces, newline characters, or tabs.
 //     Make a function named trim(string) that removes empty spaces before and after the input.
 //     Make a function named areEqual(input1, input2) that returns if both inputs have the same value
