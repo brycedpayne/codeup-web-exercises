@@ -11,9 +11,9 @@ console.log("hello from conditionals lec.js!");
 // ================ IF STATEMENT SYNTAX ================
 
 // if(condition){
-    // code here runs if condition evaluates to true
+// code here runs if condition evaluates to true
 // }
-    
+
 
 // ================ IF STATEMENT EXAMPLES ================
 //TODO Together: Show a specific navbar if user is admin
@@ -21,24 +21,24 @@ var isAdmin = true;
 
 function adminNav(isAdmin) {
     var isAdmin = true;
-    return isAdmin === true ? console.log('display admin navbar'): console.log('not an admin');
+    return isAdmin === true ? console.log('display admin navbar') : console.log('not an admin');
 }
 
-if(isAdmin) {
-   // console.log('display admin navbar'); //display a specific navbar
+if (isAdmin) {
+    // console.log('display admin navbar'); //display a specific navbar
 }
 
 //TODO Together: Send a 20% off coupon if its users birthday
 
 var isBirthday = true;
-if(isBirthday) {
+if (isBirthday) {
     //send 20% coupon;
     // console.log("Sending coupon");
 }
 //TODO Together: Write an if statement that alerts "It's raining" if isRainy is true
 
 var isRainy = true;
-if(isRainy) {
+if (isRainy) {
     // alert('its rainy');
 }
 
@@ -46,37 +46,34 @@ if(isRainy) {
 
 var currentBalance = 100000;
 var itemcost = 50000;
-if(currentBalance > itemcost) {
-   // alert('you can buy it,');
+if (currentBalance > itemcost) {
+    // alert('you can buy it,');
 }
 
 
 //TODO: Write an if statement that alerts "Sorry, game over" if numberOfLives is 0
 
 var numberOfLives = 0
-if(numberOfLives <= 1) {
+if (numberOfLives <= 1) {
     // alert('Sorry, game over.');
 }
 
 //TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing"
 
 var weather = 'snowing';
-if(weather === 'snowing') {
+if (weather === 'snowing') {
     // alert('it\'s snowing');
 }
 
 //TODO: Write an if statement that alerts true if numberInput is greater than but not equal to 10
 
 var numberInput = 11;
-if(numberInput > 10) {
+if (numberInput > 10) {
     // alert(true)
 }
 
 
 //TODO: EXTRA BONUS - Refactor each of the previous statements as functions.
-
-
-
 
 
 // =============== IF / ELSE SYNTAX ================
@@ -86,8 +83,7 @@ if(numberInput > 10) {
 // } else {
 //     // code here runs if condition evaluates to false
 // }
-    
-    
+
 
 // =============== IF / ELSE STATEMENT EXAMPLES ================
 //TODO Together: Show a specific navbar if user is admin, else show a different navbar
@@ -117,61 +113,69 @@ var isAdmin = true;
 
 //TODO: Write an if statement that alerts "Sorry, game over" if numberOfLives is 0, else alert "Next Level!"
 
-var numberOfLives = 3
-if(numberOfLives <= 1) {
-    alert('Sorry, game over.');
-} else {
-    alert("Next Level!")
-}
+// var numberOfLives = 3
+// if(numberOfLives === 1) {
+//     alert('Sorry, game over.');
+// } else {
+//     alert("Next Level!")
+// }
 
 //TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing", else alert "Check back later for more details!"
 
-var weather = 'snowing';
-if(weather === 'snowing') {
-    alert('it\'s snowing');
-} else {
-    alert("Check back later for more details!");
-}
+// var weather = 'snowing';
+// if(weather === 'snowing') {
+//     alert('it\'s snowing');
+// } else {
+//     alert("Check back later for more details!");
+// }
 
 //TODO: Write an if statement that alerts true if numberInput is greater than 10, else alert "the number is less than 10"
+//
+// var numberInput = 11;
+// if(numberInput > 10) {
+//     alert(true)
+// } else {
+//     alert("number is greater than 10");
+// }
 
-var numberInput = 11;
-if(numberInput > 10) {
-    alert(true)
-} else {
-    alert("number is greater than 10");
-}
+// //TODO: Refactor todo#1 as a function named checkIfGameIsOver, that accepts numberOfLives and returns "Sorry, game over" if numberOfLives is 0, else return "Next Level!.
+// function checkIfGameIsOver(lives) {
+//     if (lives === 0) {
+//         return 'Sorry, game over.';
+//     } else {
+//         return "Next Level!";
+//     }
+// }
 
-//TODO: Refactor todo#1 as a function named checkIfGameIsOver, that accepts numberOfLives and returns "Sorry, game over" if numberOfLives is 0, else return "Next Level!. 
- function checkIfGameIsOver(lives) {
-     if(lives<= 1) {
-         alert('Sorry, game over.');
-     } else {
-         alert("Next Level!")
-     }
- }
-
-checkIfGameIsOver(numberOfLives);
+// checkIfGameIsOver(numberOfLives);
 
 
 //TODO: EXTRA BONUS - Refactor todo#2 from above as a function.
+//
+// var weather = 'snowing';
+//
+// function weatherToday(weatherInput) {
+//     if (weatherInput === 'snowing') {
+//         alert('it\'s snowing');
+//     } else {
+//         alert("Check back later for more details!");
+//     }
+// }
+//
+// weatherToday(weather);
 
-var weather = 'snowing';
-function weatherToday(weatherInput) {
-    if (weatherInput === 'snowing') {
-        alert('it\'s snowing');
-    } else {
-        alert("Check back later for more details!");
-    }
-}
-weatherToday(weather);
-    
 // SHOULD WE DELETE STUFF EXAMPLE
 
 
-
-
 //TODO: Write a confirm asking the user if they are 13 years of age or older. If they are, alert "You may proceed", if they are not, alert "Sorry, you are not able to proceed"
+
+// var ageInput = confirm('are you 13 or older?');
+// // console.log(ageInput)
+// if (ageInput) {
+//     // alert("you may proceeed");
+// } else {
+//     // alert("Sorry, you are not able to proceed");
+// }
 
 // ================ IF / ELSE IF / ELSE STATEMENT SYNTAX ===============
 // if(condition1){
@@ -182,16 +186,29 @@ weatherToday(weather);
 //     // code here gets executed if condition1 nor condition2 evaluate to true
 // }
 
-    
 
 // =============== IF / ELSE IF/ELSE STATEMENT EXAMPLES ================
 //TODO Together: Write an if/else if/else statement that alerts "It's snowing!" if weather is equal to "snowing", alerts "It's raining" if weather is equal to "raining", alerts "have a nice day" for all other cases
+
+// var weather = 'cloudy';
+//
+// function weatherToday(weatherInput) {
+//     if (weatherInput === 'snowing') {
+//         return "it's snowing";
+//     } else if (weatherInput === 'raining') {
+//         return "it's raining";
+//     } else {
+//         return "Have a nice day!";
+//     }
+// }
+
+// alert(weatherToday(weather));
 
 //TODO Together: refactor the above statement as a function
 
 // Together: PIZZA PREFERENCE EXAMPLE 
 
-// var pizzaPreference = prompt("What kind of pizza do you like?");
+// var pizzaPreference = prompt("What kind of pizza do you like?").toLocaleLowerCase();
 // console.log("User pizza input: " + pizzaPreference);
 //
 // if (pizzaPreference === "pineapple and hot sauce") {
@@ -205,22 +222,25 @@ weatherToday(weather);
 // }
 
 
-
-
 //TODO: Write a function that accepts a string that is a traffic light color as an input. When this function is called, it should return a message informing the user what to do when approaching that color light at an intersection.
 
+// var color = prompt("what color is the light?").toLowerCase()
 
-
-
-
+// function lightColor(colorInput) {
+//     if (colorInput === 'green') {
+//         return "Go ahead!";
+//     } else if (colorInput === 'red') {
+//         return "Brake and Stop.";
+//     } else {
+//         return "Check if it's clear then do what is prudent...your fearless hero!"
+//     }
+// }
+//
+//
+// alert(lightColor(color));
 
 // ================ NESTED STATEMENTS ===============
 //TODO Together: If user is under 15, they are not eligible for a learners permit, else they are. If they are eligible, check age. If they are 15 they are eligible for a learners permit, if they are 16 or older and have a permit, they are eligible for license, if they are 16 or older and do not have a permit, they are not eligble for a license.
-
-
-
-
-
 
 
 // ================ TERNARY STATEMENT ================
@@ -257,7 +277,6 @@ weatherToday(weather);
 //WRITE YOUR TERNARY STATEMENT HERE!
 
 
-
 // =============== SWITCH STATEMENT ================
 //TODO Together:
 
@@ -270,6 +289,9 @@ weatherToday(weather);
 //     case "cheese":
 //         alert("Just plain cheese? Okay...");
 //         break;
+//     case "ham":
+//         alert("Ham is easy to spell and awesome");
+//         break;
 //     default:
 //         alert(pizzaPreference + " isn't my favorite, but let's order some!");
 //         break;
@@ -278,9 +300,60 @@ weatherToday(weather);
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
 
+// var weatherInput = prompt("What's the weather like?").toLowerCase();
+//
+// switch (weatherInput) {
+//     case "rainy":
+//         alert("it's raining be careful");
+//         break;
+//     case "snow":
+//         alert("it's snowing, be careful");
+//         break;
+//     case "sunny":
+//         alert("it's sunny, have a nice day");
+//         break;
+//     default:
+//         alert("please check back later");
+//         break;
+// }
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
+
+var color = prompt("what color is the light?").toLowerCase()
+
+function lightColor(colorInput) {
+    var toDo = "";
+    switch (colorInput) {
+        case "green":
+            toDo = "go ahead";
+            break;
+        case "yellow":
+            toDo = "slow";
+            break;
+        case "red":
+            toDo = "stop";
+            break;
+        default:
+            toDo = "what light are you looking at?";
+            break;
+    }
+    return toDo;
+}
+
+alert(lightColor(color));
+
+//     if (colorInput === 'green') {
+//         return "Go ahead!";
+//     } else if (colorInput === 'red') {
+//         return "Brake and Stop.";
+//     } else {
+//         return "Check if it's clear then do what is prudent...your fearless hero!"
+//     }
+// }
+
+
+// alert(lightColor(color));
 
 
 // ================ REVERSE ENGINEERING =================
