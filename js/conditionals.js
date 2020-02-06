@@ -255,4 +255,4 @@ var luckyNumber = Math.floor(Math.random() * 6);
 var totalPrice = Number(prompt("What was your total bill?"));
 
 // alert(calculateTotal(luckyNumber, totalPrice) + " " + luckyNumber + " " +totalPrice);
-alert("Your lucky number is: " + luckyNumber + "\n Your total before discount was: $" + totalPrice.toFixed(2) + "\n Your discounted price is: $" + calculateTotal(luckyNumber, totalPrice).toFixed(2));
+alert("Your lucky number is: " + luckyNumber + "\n Your total before discount was: $" + totalPrice.toFixed(2) + "\n Your discounted price is:  $" + calculateTotal(luckyNumber, totalPrice).toFixed(2));
