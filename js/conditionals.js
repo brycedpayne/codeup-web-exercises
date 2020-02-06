@@ -212,7 +212,7 @@ function analyzeColor(userInput) {
  */
 
 function calculateTotal(luckyNumber, totalPrice) {
-    console.log(luckyNumber);
+    console.log(luckyNumber);luckyNumber
     var discountPrice;
     switch (luckyNumber) {
         case 1:
@@ -250,6 +250,9 @@ function calculateTotal(luckyNumber, totalPrice) {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
 
-// console.log(calculateTotal(luckyNumber, 100));
+var totalPrice = Number(prompt("What was your total bill?"));
+
+// alert(calculateTotal(luckyNumber, totalPrice) + " " + luckyNumber + " " +totalPrice);
+alert("Your lucky number is: " + luckyNumber + "\n Your total before discount was: $" + totalPrice.toFixed(2) + "\n Your discounted price is: $" + calculateTotal(luckyNumber, totalPrice).toFixed(2));
