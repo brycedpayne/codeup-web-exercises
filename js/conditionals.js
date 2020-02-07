@@ -48,33 +48,35 @@ function defineNumber() {
 
     if (input) {
 
-        var userInput = prompt("please enter a number");
-        var numInput = Number(userInput)
+        var userInput = prompt("please enter a number"); //get's number from user.
+        var numInput = Number(userInput) // converts to number
 
         if (isNaN(numInput)) {
             alert(userInput + " is not a number");
         } else {
-            if (numInput % 2 === 0) {
+            if (numInput % 2 === 0) {  // ? true --> even
                 var isOdd = "Even";
             } else {
                 isOdd = "Odd";
             }
 
-            if (numInput === Math.abs(numInput)) {
-                var isNeg = "positive";
+            if(numInput === 0) {
+                var isNeg = "neither poitive nor negative";
+            }else if (numInput === Math.abs(numInput)) {
+                isNeg = "positive";
             } else {
                 isNeg = "Negative"
             }
-            alert(numInput + " is " + isOdd + ", " + numInput + " + 100 = " + (numInput + 100) + ", and is " + isNeg + ".");
+            return (numInput + " is " + isOdd + ", " + numInput + " + 100 = " + (numInput + 100) + ", and is " + isNeg + ".");
         }
 
     } else {
-        alert("Thanks anyway")
+        return ("Thanks anyway");
     }
 
 }
 
-// defineNumber();
+alert(defineNumber());
 
 
 /* ########################################################################## */
