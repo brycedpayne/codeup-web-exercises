@@ -76,7 +76,7 @@ function defineNumber() {
 
 }
 
-alert(defineNumber());
+// alert(defineNumber());
 
 
 /* ########################################################################## */
