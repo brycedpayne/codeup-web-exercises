@@ -149,14 +149,30 @@ console.log("hello fromm loops js");
 
 // TODO TOGETHER: Using a for loop, log all even numbers 0 - 100;
 
-// for (var i = 0; i <= 100; i+=2) {
+// for (var i = 0; i <= 100; i++) {
+//     if (i % 2 === 0) {
+//         console.log(i);
+//     }
+// }
+//
+// ||
+//
+// for (var i = 0; i <= 100; i += 2) {
 //     console.log(i);
 // }
 
 // TODO: Using a for loop, log all numbers divisible by 5, from 0 - 100;
 
-// for (var i = 5; i <= 100; i+=5) {
-//     console.log(i);
+// for (var i = 0; i <= 100; i++) {
+//     if (i % 5 === 0) {
+//         console.log(i);
+//     }
+// }
+//
+// ||
+//
+// for (var i = 0; i <= 100; i += 5) {
+// 	console.log(i);
 // }
 
 
@@ -168,7 +184,7 @@ console.log("hello fromm loops js");
 //  All other cases, just log the number.
 
 
-// for (var i = 0; i <= 100; i++) {
+// for (var i = 1; i <= 100; i++) {
 //     if (i % 3 === 0 && i % 5 === 0) {
 //         console.log('Fizzbuzz');
 //     } else if (i % 3 === 0) {
@@ -203,12 +219,12 @@ console.log("hello fromm loops js");
 
 
 // We can get an iteration to skip using continue;
-for (var i = 1; i < 100; i++) {
-
-	if (i % 2 !== 0) {
-		// skipping all odd numbers;
-		continue;
-	}
-
-	console.log('Here is a lovely even number: ' + i);
-}
+// for (var i = 1; i < 100; i++) {
+//
+// 	if (i % 2 !== 0) {
+// 		// skipping all odd numbers;
+// 		continue;
+// 	}
+//
+// 	console.log('Here is a lovely even number: ' + i);
+// }
