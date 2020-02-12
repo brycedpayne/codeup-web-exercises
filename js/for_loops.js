@@ -3,7 +3,7 @@
 // ***************************************************** Mult table ***************************************
 
 
-function showMultiplicatioTable(numInput) {
+function showMultiplicationTable(numInput) {
     for (var i = 1; i <= 10; i++) {
         console.log(numInput + ' * ' + i + ' = ' + (numInput * i));
     }
@@ -12,7 +12,7 @@ function showMultiplicatioTable(numInput) {
 
 
 
-showMultiplicatioTable(7);
+showMultiplicationTable(7);
 //
 // ********************************************* random odd/even checker ***************************************
 
@@ -28,6 +28,9 @@ for (var i = 0; i < 10; i++) {
 
 
 // ***************************************************** number tree ***************************************
+
+                    //******************** solution one *********************
+
 function numberStack() {
 
     var stack = '1';
@@ -40,7 +43,7 @@ function numberStack() {
  numberStack();
 
 
-
+                    //******************** solution two *********************
 
 
 
