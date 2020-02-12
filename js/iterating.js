@@ -65,6 +65,22 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    function
+    var testArr = [1,3,5,7,9];
+
+    function first(inputArr) {
+        return inputArr[1];
+    }
+
+    function second(inputArr) {
+        return inputArr[2];
+    }
+
+    function third(inputArr) {
+        return inputArr[3];
+    }
+
+    console.log(first(testArr));
+    console.log(second(testArr));
+    console.log(third(testArr));
 
 })();
