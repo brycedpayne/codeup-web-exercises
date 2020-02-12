@@ -1,5 +1,7 @@
 'use strict';
 
+//************************************* one solution (without prompt repeat) ************************
+
 function numSkipper() {
     var input = parseInt(prompt('please enter an odd number between 0 and 50'))
     console.log(input + ' is the number to skip');
@@ -22,6 +24,7 @@ function numSkipper() {
 
 numSkipper()
 
+//************************************* another solution (with prompt repeat) ************************
 
 function numSkipper() {
 
