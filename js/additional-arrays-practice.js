@@ -145,6 +145,7 @@
 
     var testArr = [1,3,5,7,9,11]
     var testStringArr = ['red','blue','green','purple']
+    var testStringArrTwo = ['aquamarine','turquoise','tenletters','red','blue','green','purple']
 
 // **
 // * JS Array Practice
@@ -191,20 +192,43 @@
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
 
     function getLongestString(inputArr) {
-        var longest = inputArr.reduce(function(a, b) {a.length > b.length ? a : b}, '');
-
-        return longest;
+        var longest = inputArr.reduce(function (a, b) {
+            return a.length > b.length ? a : b
+        }, '');
+        console.log(longest);
     }
 
-    console.log(getLongestString(testStringArr));
+    // getLongestString(testStringArr);
+    // getLongestString(testStringArrTwo);
 
 // Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
 
+    function getShortestString(inputArr) {
+        var shortest = inputArr.reduce(function (a, b) {
+            return a.length <= b.length ? a : b
+        });
+        console.log(shortest);
+    }
+
+    // getShortestString(testStringArr);
+    // getShortestString(testStringArrTwo);
+
 // Exercise 4. Write a function named addTwoArrays that takes in two, one dimensional arrays. The function should return a single array containing all of the elements of the first array along with all of the elements of the second array
 // Example: addTwoArrays([1, 2, 3], [4, 5, 6]) should return [1, 2, 3, 4, 5, 6]
+    
+    function addTwoArrays(arrOne, arrTwo) {
+        return arrOne.concat(arrTwo);
+    }
+
+    // console.log(addTwoArrays(testArr, testStringArr));
+    // console.log(addTwoArrays(testStringArr, testStringArrTwo));
 
 // Exercise 5. Write a function named getUniqueValues that takes in an array and returns the array without any duplicates
 // Example: getUniqueValues(["a", "b", "a", "b", "c", "c"]) should return ["a", "b", "c"]
+
+    function getUniqueValues(inputArr) {
+
+    }
 
 // Exercise 6. Write a function named reverseArray that takes in an array and returns it reversed, but without altering the original array.
 
