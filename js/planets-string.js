@@ -26,15 +26,15 @@
      * string, and <li> tags around each planet.
      */
 
-    // planetsString = planetsArray.join('<br>');
-    //
-    // console.log(planetsString);
-    //
-    // planetsArray = planetsString.split('<br>');
+    planetsString = planetsArray.join('<br>');
+
+    console.log(planetsString);
+
+    planetsArray = planetsString.split('<br>');
 
     // ************************** bad way to do it but works ***************************************************
 
-    // planetsString = '<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>'
+    planetsString = '<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>';
 
     // ************************** better way to do it to visually debug ****************************************
 
