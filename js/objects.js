@@ -28,7 +28,7 @@
      */
 
     person.sayHello = function () {
-        return 'Hello from ' + this.firstName + ' ' + this.lastName;
+        return 'Hello from ' + this.firstName + ' ' + this.lastName + '!';
     }
 
     console.log(person.sayHello());
@@ -54,9 +54,14 @@
         {name: 'George', amount: 320}
     ];
 
-    function discount(input) {
-        if (input.amount > 200) {
-            input.amount = input.amount * .88
+    function discount(shopper) {
+        if (shopper.amount > 200) {
+            shopper.discount = .12;
+            shopper.totalAmount = shopper.amount * .88;
+            // input.amount = input.amount * .88
+        } else {
+            shopper.discount = 0;
+            shopper.totalAmount = shopper.amount;
         }
     }
 
@@ -64,7 +69,7 @@
     shoppers.forEach(shopper => discount(shopper));
 
 
-    shoppers.forEach(shopper => console.log(shopper.name + ' owes $' + shopper.amount.toFixed(2)));
+    shoppers.forEach(shopper => console.log(shopper.name + ' spent $' + shopper.amount.toFixed(2) + '. Their discount is ' + (shopper.amount * shopper.discount).toFixed(2) + ' and discounted total is $' + shopper.totalAmount + ''));
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
