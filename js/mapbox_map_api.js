@@ -13,8 +13,6 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-//TODO: Experiment with different map styles, zoom levels, and centers. You will need to reference the mapbox docs. (~15 minutes)
-
 
 /**********************************************
  *             MARKERS & POPUPS
@@ -39,10 +37,7 @@ var markerOptions = {
 /**********************************************
  *                    Geocoder
  *********************************************/
-// Geocoding Docs --> https://docs.mapbox.com/api/search/#geocoding
 
-
-// TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
 
 // geocode('Paris, France', mapboxToken).then(function (result) {
 //     console.log(result);
@@ -50,15 +45,6 @@ var markerOptions = {
 //     map.setZoom(15);
 //     // map.flyTo({center: result, zoom: 15});
 // });
-
-
-//TODO: Using the geocode method above, add a marker at Codeup to the map
-//TODO: Instead of setCenter try using map.jumpTo()
-//TODO: Instead of setCenter try using map.flyTo()
-
-
-// TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -98.4861, lat: 29.4260} to get a physical address for the alamo
-// TODO: Reverse geocode coordinates of your choice using the reverse geocode method
 
 
 reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxToken).then(function (result) {
@@ -92,9 +78,6 @@ var favRest = [
     }
 ];
 
-// favRest.foreach(function(rest){
-//
-// }
 
 favRest.forEach(function(restaurant){
 
@@ -112,6 +95,11 @@ favRest.forEach(function(restaurant){
             .setPopup(restPopup)
             .addTo(map);
     })
+});
+
+document.getElementById("myBtn").addEventListener("click", function(){
+    var zmlvl = parseInt(document.getElementById('zmLvl'));
+    map.setZoom(zmlvl);
 });
 
 
