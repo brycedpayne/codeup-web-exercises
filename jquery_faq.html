@@ -6,5 +6,98 @@
 </head>
 <body>
 
+<dl>
+    <dt>Redwoods NSP</dt>
+    <dd>Is the home of the california redwoods, some of the tallest trees in North America.</dd>
+
+    <dt>Yellowstone NP</dt>
+    <dd>Yellowstone was the first national park in the United States and is the home of 'Old Faithful'.</dd>
+
+    <dt>Big Bend NP</dt>
+    <dd>Located in West Texas, this park offers a unique locale for several different biomes.</dd>
+
+    <dt>Fort Sumter NP</dt>
+    <dd>This Fort was where the first shots of the US Civil War were fired.</dd>
+
+    <dt>Bryce Canyon NP</dt>
+    <dd>Hoodoos (irregular columns of rock) exist on every continent, but here is the largest concentration found
+        anywhere on Earth.
+    </dd>
+
+    <dt>Jamestown NP</dt>
+    <dd>Jamestown was the first permanent British Colony in North America.</dd>
+
+    <dt>Grand Canyon NP</dt>
+    <dd>Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km)
+        long, up to 18 miles (29km) wide, and a mile (1.6km) deep.
+    </dd>
+
+    <dt>Devil's Tower NP</dt>
+    <dd>Devil's Tower features heavily in several films including Close Encounters of the Third Kind.</dd>
+
+    <dt>Yosemite NP</dt>
+    <dd>First protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200
+        square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much
+        more.
+    </dd>
+
+    <dt>Olympic NP</dt>
+    <dd>Encompassing nearly a million acres, the park protects a vast wilderness, thousands of years of human history,
+        and several distinctly different ecosystems, including glacier-capped mountains, old-growth temperate rain
+        forests, and over 70 miles of wild coastline.
+    </dd>
+
+</dl>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/jquery-essential-methods.js"></script>
+
+<script>
+
+    $('dd').addClass('invisible');
+
+    $('.invisible').css('visibility', 'hidden')
+
+    var i = 0;
+
+    function clearBackground (){
+        $('dt').css('background','none')
+    };
+
+    $('dt').click(function () {
+        clearBackground()
+
+        i++
+
+        if (i % 2 === 1) {
+            $('.invisible').css('visibility', 'visible')
+        } else {
+            $('.invisible').css('visibility', 'hidden')
+            i = 0;
+        }
+
+        console.log(i);
+
+        $(this).css('background', 'green')
+    })
+
+    function parkNumber() {
+
+        var counter = 0;
+        $('dt').attr('id', function (index) {
+            return 'park' + index;
+        });
+
+
+    }
+
+    parkNumber();
+
+
+
+</script>
+
 </body>
 </html>
