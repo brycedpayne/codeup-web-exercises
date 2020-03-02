@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="js/jquery-2.2.4.js"></script>
+
+<h1 class="header" id="header">
+    this is a header.
+</h1>
+
+<p class="para" id="para">
+    this a paragraph.
+</p>
+
+<ul class="list" id="codeup">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3
+    </li
+    >
+</ul>
+
+<div class="codeup" id="div1">
+    This is a div.
+</div>
+<div class="codeup" id="div2">
+    This is also a div.
+</div>
+
+<script type="text/javascript">
+    "use strict";
+    // $(document).ready(function () {
+    //     alert('The DOM has finished loading!');
+    // });
+
+    // var contents = $("h1").html();
+    // alert(contents);
+    // $(".codeup").css("border","1px solid red");
+
+    // $("li").css("font-size", "20px")
+    // $(".para").css("background-color", "yellow")
+    // $(".codeup").css("background-color", "yellow")
+    // $(".header").css("background-color", "yellow")
+    //
+    // $("h1, p, li").css("background-color","green");
+    $("h1").click(
+        function() {
+            $(this).css("background-color","lightblue");
+        });
+    $("p").dblclick(
+        function () {
+            $(this).css('font-size','18px')
+        }
+    )
+    $('li').hover(
+        function() {
+            $('li').css('color', 'red');
+        },
+        function() {
+            $('li').css('color', 'black');
+        }
+    );
+
+</script>
+
+</body>
+</html>
