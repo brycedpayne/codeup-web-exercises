@@ -5,7 +5,10 @@
     <title>jqueryFAQ</title>
 </head>
 <body>
-
+<div>
+    <span class="close">X</span>
+    <h1 class="newsletter">Would you like to sign up for our newsletter?</h1>
+</div>
 <dl>
     <dt>Redwoods NSP</dt>
     <dd>Is the home of the california redwoods, some of the tallest trees in North America.</dd>
@@ -50,6 +53,37 @@
 </dl>
 
 
+<h1>Traversing jquery</h1>
+
+<h3>Carlsbad Caverns</h3>
+<ul>
+    <li>Largest cave: Lechuguilla Cave</li>
+    <li>Largest, readily accessible cave chamber in NA</li>
+    <li>Contains over 120 known caves</li>
+    <li>Loacted in southeastern New Mexico</li>
+</ul>
+
+<h3>Denali</h3>
+<ul>
+    <li>Est. February 26,1917</li>
+    <li>6,075,029 acres</li>
+    <li>Home of Mount McKinley</li>
+    <li>Home of Denali the highest peak in NA, at 20,320 above sae level</li>
+</ul>
+
+<h3>Yellowstone</h3>
+<ul>
+    <li>First National Park in the US</li>
+    <li>Is a caldera formed by an ancient but still active super volcano</li>
+    <li>Home of 'Old Faithful' an active geyser that erupts more frequently than any other large geyser.</li>
+    <li>Half of the world's hydrothermal features are found at Yellowstone.</li>
+</ul>
+
+<button type="button">Button that does something</button>
+
+<h2 class="register">Please register for our site.</h2>
+
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="js/jquery-essential-methods.js"></script>
@@ -62,8 +96,8 @@
 
     var i = 0;
 
-    function clearBackground (){
-        $('dt').css('background','none')
+    function clearBackground() {
+        $('dt').css('background', 'none')
     };
 
     $('dt').click(function () {
@@ -95,6 +129,33 @@
 
     parkNumber();
 
+
+    $('ul').each(function (index) {
+        $(this).children().first().hide();
+    })
+
+    $('button').click(function() {
+       $('ul').each(function(index) {
+           $(this).children().last().css('background', 'yellow');
+       })
+    });
+
+    $('h3').click(function() {
+        $(this).next().children().css('font-weight', 'bold');
+        $(this).next().children().first().slideToggle(1000);
+    });
+
+    $('li').click(function() {
+        $(this).parent().children().first().css('color','blue');
+    });
+
+    $('.close').click(function () {
+        $(this).hide();
+        $(this).next().hide();
+    });
+
+    $('.register').hide()
+    $('.register').delay(8000).fadeIn()
 
 
 </script>
