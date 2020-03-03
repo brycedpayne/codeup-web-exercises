@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jqueryFAQ</title>
+</head>
+<body>
+<div>
+    <span class="close">X</span>
+    <h1 class="newsletter">Would you like to sign up for our newsletter?</h1>
+</div>
+<dl>
+    <dt>Redwoods NSP</dt>
+    <dd>Is the home of the california redwoods, some of the tallest trees in North America.</dd>
+
+    <dt>Yellowstone NP</dt>
+    <dd>Yellowstone was the first national park in the United States and is the home of 'Old Faithful'.</dd>
+
+    <dt>Big Bend NP</dt>
+    <dd>Located in West Texas, this park offers a unique locale for several different biomes.</dd>
+
+    <dt>Fort Sumter NP</dt>
+    <dd>This Fort was where the first shots of the US Civil War were fired.</dd>
+
+    <dt>Bryce Canyon NP</dt>
+    <dd>Hoodoos (irregular columns of rock) exist on every continent, but here is the largest concentration found
+        anywhere on Earth.
+    </dd>
+
+    <dt>Jamestown NP</dt>
+    <dd>Jamestown was the first permanent British Colony in North America.</dd>
+
+    <dt>Grand Canyon NP</dt>
+    <dd>Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km)
+        long, up to 18 miles (29km) wide, and a mile (1.6km) deep.
+    </dd>
+
+    <dt>Devil's Tower NP</dt>
+    <dd>Devil's Tower features heavily in several films including Close Encounters of the Third Kind.</dd>
+
+    <dt>Yosemite NP</dt>
+    <dd>First protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200
+        square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much
+        more.
+    </dd>
+
+    <dt>Olympic NP</dt>
+    <dd>Encompassing nearly a million acres, the park protects a vast wilderness, thousands of years of human history,
+        and several distinctly different ecosystems, including glacier-capped mountains, old-growth temperate rain
+        forests, and over 70 miles of wild coastline.
+    </dd>
+
+</dl>
+
+
+<h1>Traversing jquery</h1>
+
+<h3>Carlsbad Caverns</h3>
+<ul>
+    <li>Largest cave: Lechuguilla Cave</li>
+    <li>Largest, readily accessible cave chamber in NA</li>
+    <li>Contains over 120 known caves</li>
+    <li>Loacted in southeastern New Mexico</li>
+</ul>
+
+<h3>Denali</h3>
+<ul>
+    <li>Est. February 26,1917</li>
+    <li>6,075,029 acres</li>
+    <li>Home of Mount McKinley</li>
+    <li>Home of Denali the highest peak in NA, at 20,320 above sae level</li>
+</ul>
+
+<h3>Yellowstone</h3>
+<ul>
+    <li>First National Park in the US</li>
+    <li>Is a caldera formed by an ancient but still active super volcano</li>
+    <li>Home of 'Old Faithful' an active geyser that erupts more frequently than any other large geyser.</li>
+    <li>Half of the world's hydrothermal features are found at Yellowstone.</li>
+</ul>
+
+<button type="button">Button that does something</button>
+
+<h2 class="register">Please register for our site.</h2>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/jquery-essential-methods.js"></script>
+
+<script>
+
+    $('dd').addClass('invisible');
+
+    $('.invisible').css('visibility', 'hidden')
+
+    var i = 0;
+
+    function clearBackground() {
+        $('dt').css('background', 'none')
+    };
+
+    $('dt').click(function () {
+        clearBackground()
+
+        i++
+
+        if (i % 2 === 1) {
+            $('.invisible').css('visibility', 'visible')
+        } else {
+            $('.invisible').css('visibility', 'hidden')
+            i = 0;
+        }
+
+        console.log(i);
+
+        $(this).css('background', 'green')
+    })
+
+    function parkNumber() {
+
+        var counter = 0;
+        $('dt').attr('id', function (index) {
+            return 'park' + index;
+        });
+
+
+    }
+
+    parkNumber();
+
+
+    $('ul').each(function (index) {
+        $(this).children().first().hide();
+    })
+
+    $('button').click(function() {
+       $('ul').each(function(index) {
+           $(this).children().last().css('background', 'yellow');
+       })
+    });
+
+    $('h3').click(function() {
+        $(this).next().children().css('font-weight', 'bold');
+        $(this).next().children().first().slideToggle(1000);
+    });
+
+    $('li').click(function() {
+        $(this).parent().children().first().css('color','blue');
+    });
+
+    $('.close').click(function () {
+        $(this).hide();
+        $(this).next().hide();
+    });
+
+    $('.register').hide()
+    $('.register').delay(8000).fadeIn()
+
+
+</script>
+
+</body>
+</html>
