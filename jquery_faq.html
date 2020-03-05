@@ -130,8 +130,12 @@
     parkNumber();
 
 
+    // $('ul').each(function (index) {
+    //     $(this).children().first().hide();
+    // })
+
     $('ul').each(function (index) {
-        $(this).children().first().hide();
+        $(this).hide();
     })
 
     $('button').click(function() {
@@ -142,7 +146,7 @@
 
     $('h3').click(function() {
         $(this).next().children().css('font-weight', 'bold');
-        $(this).next().children().first().slideToggle(1000);
+        $(this).next().slideToggle(1000);
     });
 
     $('li').click(function() {

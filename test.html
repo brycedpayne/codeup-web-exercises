@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example jQuery Page</title>
+</head>
+<body>
+<h1 id="codeup">Hello Codeup</h1>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).ready(function() {
+        $('#codeup').hover(
+            function() {
+                $(this).css('background-color', '#FF0');
+            },
+            function() {
+                $(this).css('background-color', '#FFF');
+            }
+        );
+    });
+</script>
+</body>
+</html>
