@@ -1,6 +1,52 @@
 $(document).ready(function () {
     "use strict";
 
+    // lat/lon getter
+
+    $('style').append('.coordinates {\n' +
+        'background: rgba(0, 0, 0, 0.5);\n' +
+        'color: #fff;\n' +
+        'position: absolute;\n' +
+        'bottom: 40px;\n' +
+        'left: 10px;\n' +
+        'padding: 5px 10px;\n' +
+        'margin: 0;\n' +
+        'font-size: 11px;\n' +
+        'line-height: 18px;\n' +
+        'border-radius: 3px;\n' +
+        'display: none;\n' +
+        '}')
+
+    $('.coords').hide();
+
+
+    var lat = 29.4241;
+    var lon = -98.4936;
+
+    $('#relocate').click(function () {
+        lat = $('#latitude').val();
+        lon = $('#longitude').val();
+        map.setCenter([lon,lat])
+        mapIt();
+    });
+
+    //  Mapbox //
+    mapboxgl.accessToken = mapboxToken;
+
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/outdoors-v11',
+            zoom: 10,
+            scrollZoom: false,
+            center: [lon, lat]
+        });
+
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    //weather obj array //
+
     var weatherTypes = [
         {
             id: 0,
@@ -53,51 +99,108 @@ $(document).ready(function () {
             icon: "icons/Weather (Blue Filled Line)/PNG/48/4894519 - cloud crescent half moon night sleep weather.png",
         }
     ]
-    console.log('hello');
 
-    var ajax = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyToken + '/29.4241,-98.4936');
-    ajax.done(function (data) {
-        console.log(data);
-        //
-        //
-        // console.log(data.daily.data[0].icon);
-        function getWeather() {
+    // dow process //
 
-            for (var i = 0; i < weatherTypes.length; i++) {
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
 
-                if (data.daily.data[0].icon === weatherTypes[i].type) {
-                    var today = '<h3>Today\'s Forecast</h3><h4>' + data.daily.data[0].summary.toUpperCase() + '</h4><img src="' + weatherTypes[i].icon + '" alt="weather_icon">' + '<p>HIGH: '+ data.daily.data[0].temperatureHigh.toFixed(0) + '° / LOW: ' + data.daily.data[0].temperatureLow.toFixed(0) + '°</p><p>FEELS LIKE: ' + data.currently.apparentTemperature.toFixed(0) + '°</p>';
-                    break;
-                } else {
-                    today = 'The Weather God\'s are Busy Right Now';
+// ajax api for darksky //
+
+    function mapIt() {
+        var ajax = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyToken + '/' + lat + ',' + lon);
+
+        $(document).ready(function () {
+
+            ajax.done(function (data) {
+                // console.log(data);
+
+                var weatherArr = [];
+
+
+                for (var x = 0; x <= 2; x++) {
+                    var dailyObj = {};
+
+                    dailyObj.id = x;
+                    dailyObj.summary = data.daily.data[x].summary
+                    dailyObj.temperatureHigh = data.daily.data[x].temperatureHigh
+                    dailyObj.temperatureLow = data.daily.data[x].temperatureLow
+                    dailyObj.windSpeed = data.daily.data[x].windSpeed
+                    dailyObj.icon = data.daily.data[x].icon;
+
+                    weatherArr.push(dailyObj);
                 }
-            }
-            for (var i = 0; i < weatherTypes.length; i++) {
 
-
-                if (data.daily.data[1].icon === weatherTypes[i].type) {
-                    var tomorrow = '<h3>Today\'s Forecast</h3><h4>' + data.daily.data[1].summary.toUpperCase() + '</h4><img src="' + weatherTypes[i].icon + '" alt="weather_icon">' + '<p>HIGH: '+ data.daily.data[1].temperatureHigh.toFixed(0) + '° / LOW: ' + data.daily.data[1].temperatureLow.toFixed(0) + '°</p>';
-                    break;
-                } else {
-                    tomorrow = 'The Weather God\'s are Busy Right Now';
+                function icon(darkSkyIcon) {
+                    var testIcon = '';
+                    weatherTypes.forEach(function (weatherType) {
+                        if (weatherType.type === darkSkyIcon) {
+                            testIcon = weatherType.icon;
+                        }
+                    })
+                    return testIcon;
                 }
-            }
-            //
-            for (var i = 0; i < weatherTypes.length; i++) {
-                if (data.daily.data[2].icon === weatherTypes[i].type) {
-                    var theNextDay = '<h3>Today\'s Forecast</h3><h4>' + data.daily.data[2].summary.toUpperCase() + '</h4><img src="' + weatherTypes[i].icon + '" alt="weather_icon">' + '<p>HIGH: '+ data.daily.data[2].temperatureHigh.toFixed(0) + '° / LOW: ' + data.daily.data[2].temperatureLow.toFixed(0) + '°</p>';
-                    break;
-                } else {
-                    theNextDay = 'The Weather God\'s are Busy Right Now';
+
+//****************************************************
+                function getWeather() {
+                    var current = '<div class="container scroll"><p><strong>CURRENTLY</strong>: FEELS LIKE: ' + data.currently.apparentTemperature.toFixed(0) + '°</p></div>';
+                    $('#current').html(current)
+                    weatherArr.forEach(function (obj) {
+                        var dayId = '#day' + obj.id;
+                        var imgSrc = icon(obj.icon);
+                        var dow = '';
+                        if (obj.id === 0) {
+                            dow = 'TODAY';
+                        } else if(d.getDay() + obj.id === 7){
+                            dow = 'SUNDAY';
+                        } else if(d.getDay() + obj.id === 8){
+                            dow = 'MONDAY';
+                        } else {
+                            dow = weekday[d.getDay() + obj.id].toUpperCase()
+                        }
+                        $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + 'MPH</p>')
+                    })
                 }
+
+                getWeather();
+            })
+
+
+            // add markers to map
+            var marker = new mapboxgl.Marker({
+                draggable: true
+            })
+                .setLngLat([lon, lat])
+                .addTo(map);
+
+            function onDragEnd() {
+                var lngLat = marker.getLngLat();
+                // coordinates.style.display = 'block';
+                // coordinates.innerHTML =
+                //     'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+
+                lat = lngLat.lat;
+                lon = lngLat.lng;
+                $('.latLonInput').hide();
+                $('.coords').show();
+                map.setCenter([lon,lat])
             }
 
-            $('#todaysForecast').html(today);
-            $('#tomorrowsForecast').html(tomorrow);
-            $('#twoDaysForecast').html(theNextDay);
+            marker.on('dragend', onDragEnd);
+        })
 
-        }
+        $('#coords').click(function(){
+            $('.latLonInput').show();
+            $('.coords').hide();
+        })
+    };
+    mapIt()
 
-        getWeather();
-    })
 });
