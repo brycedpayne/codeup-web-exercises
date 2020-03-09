@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Assessment 3 Review</title>
+    <style>
+        h1 {
+            color: magenta;
+        }
+        .runner {
+            width: 20%;
+            height: 10%;
+            background-color: green;
+        }
+        body {
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<h1>I don't like this color</h1>
+<div class="runner">
+    <h3>You'll never catch me</h3>
+</div>
+<input type="text" id="input">
+<button id="add-btn">Click to add</button>
+<ul id="add-to-me">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+</ul>
+<p id="thundercats"><span>Thunder</span> <span>Thunder</span> <span>Thundercats</span> <span>HOOOOOOOO!!!!!!</span></p>
+<button id="get-hype">Get Hype</button>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    //Write a function that changes the text color of the <h1> when the <h1> is clicked
+    $("h1").click(function () {
+        $(this).css("color", "purple");
+    });
+    //Hard mode: Change the text color to either Blue, Yellow or Red if the b, y or r keys are pressed
+    //66, 89, 82
+    $("*").keydown(function (event) {
+        if (event.keyCode === 66) {
+            $("h1").css("color", "blue");
+        } else if (event.keyCode === 89) {
+            $("h1").css("color", "yellow");
+        } else if (event.keyCode === 82) {
+            $("h1").css("color", "red");
+        }
+    });
+    //Write a function that causes the runner div to move to the right side of the screen when the mouse moves over it
+    //     $(".runner").mouseover(function () {
+    //         console.log("yay");
+    //         $(this).css("margin-left", "auto");
+    //     });
+    //Hard mode: Have the div go to the other side of the screen regardless of where it is.
+    var whereAreWe = "left";
+    $(".runner").mouseenter(function () {
+        if (whereAreWe === "left") {
+            $(this).css({"margin-left": "auto",
+                "margin-right": "0"});
+            whereAreWe = "right";
+        } else if (whereAreWe === "right") {
+            $(this).css({"margin-right": "auto",
+                "margin-left": "0"});
+            whereAreWe = "left";
+        }
+    });
+    //Write a function to take the value from the input and append the value onto the ul with the id of add-to-me.
+    $("#add-btn").click(function () {
+        var userInput = $("#input").val();
+        $("#input").val("");
+        $("#add-to-me").append("<li>" + userInput + "</li>");
+        $("#add-to-me").children().last().bind("click", moveLis);
+    });
+    //Hard mode: when you click on an li move it from it's current location to the top of the ul
+    function moveLis() {
+        var clickedli = $(this).text();
+        $(this).remove();
+        $("#add-to-me").prepend("<li>" + clickedli + "</li>");
+        $("#add-to-me").children().first().bind("click", moveLis);
+    }
+    $("li").click(moveLis);
+    //Write a function that changes the font of all text to comic sans 5 seconds after the page loads
+    var delay = 5000;
+    var timeoutID = setTimeout( function () {
+        $("*").css("font-family", "Comic Sans MS");}, delay);
+    //$("*").delay(5000).queue(function() {
+    //$(this).css(comic sans stuff);
+    //});
+    //Hard mode: Change the background to this image after 10 seconds. https://images.pexels.com/photos/2740956/pexels-photo-2740956.jpeg?cs=srgb&dl=black-and-white-laptop-2740956.jpg&fm=jpg
+    setTimeout(function () {
+        $("body").css("background-image", "url(https://images.pexels.com/photos/2740956/pexels-photo-2740956.jpeg?cs=srgb&dl=black-and-white-laptop-2740956.jpg&fm=jpg)")}, 2000)
+    //Write a function that bolds the words in the paragraph element with the id of thundercats when the get hype button is pressed
+    // $("#get-hype").click(function () {
+    //     $("#thundercats").css("font-weight", "bold");
+    // });
+    //Hard mode: Bold one word every time the button is pressed
+    var counter = 1;
+    $("#get-hype").click(function () {
+        $("#thundercats span:nth-child(" + counter +  ")").css("font-weight", "bold");
+        counter++;
+    });
+</script>
+</body>
+</html>
+
+
