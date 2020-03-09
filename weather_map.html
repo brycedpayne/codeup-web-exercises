@@ -8,8 +8,18 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
-            background: #3B94D9;
+            background: linear-gradient(to top, #FFFFFF, #3B94D9);
         }
+
+        .mapboxgl-popup-tip {
+            /*background: blue;*/
+            color: blue;
+        }
+        .mapboxgl-popup-content {
+            background: #3fb1ce;
+            color: white;
+        }
+
 
         #map {
             width: 100%;
@@ -25,7 +35,7 @@
 
         #current p {
             font-size: 1.5em;
-            color: blue;
+            color: white;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -74,6 +84,10 @@
             }
         }
 
+        .tempBtn {
+            width: 140px;
+        }
+
     </style>
 </head>
 <body>
@@ -82,30 +96,31 @@
     <div id="current" class="text-center"></div>
     <div class="row text-center">
         <div id="day0" class="forecast col-sm-12 col-md-4 border bg-white">
-            <!--<h3>Today's forecast</h3>-->
 
         </div>
 
         <div id="day1" class="forecast col-sm-12 col-md-4 border bg-white">
-            <!--    <h3>Tomorrow's forecast</h3>-->
 
         </div>
 
         <div id="day2" class="forecast col-sm-12 col-md-4 border bg-white">
-            <!--    <h3>The Next Day's forecast</h3>-->
 
         </div>
     </div>
 </div>
 <br>
 
+<div class="text-center"><button class="tempBtn" id="imp" type="button">Imperial Units</button><button class="tempBtn" id="si" type="button">SI Units</button></div>
+
+<br>
+
 <!-- The HTML element that serves as the Mapbox container -->
 <div class="container text-center">
 
-    <!--    <label for="zmLvl">Please set your zoom level (0-20)</label>-->
-    <!--    <input type="text" id="zmLvl">-->
-
-    <!--    <button id="myBtn">Set Zoom</button>-->
+    <div class="searchBy pb-2">
+        <button id="showCoord">Search by Coordinates</button>
+        <button id="showLoc">Search by Loc. Name</button>
+    </div>
     <div class="latLonInput">
         <label for="latitude">LATITUDE:</label>
         <input type="text" id="latitude" placeholder="(dd.dddd)">
@@ -117,9 +132,16 @@
 
     </div>
 
-    <div class="coords">
-        <button id="coords">Enter Coordinates</button>
+    <div class="geocode">
+        <label for="geocode">Search by name:</label>
+        <input type="text" id="geocode" placeholder="(location)">
+        <button id="geoSearch">Search</button>
     </div>
+
+    <div class="coords">
+        <button id="coords">Search</button>
+    </div>
+
 </div>
 
 <br>

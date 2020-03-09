@@ -1,52 +1,81 @@
 $(document).ready(function () {
     "use strict";
 
-    // lat/lon getter
-
-    $('style').append('.coordinates {\n' +
-        'background: rgba(0, 0, 0, 0.5);\n' +
-        'color: #fff;\n' +
-        'position: absolute;\n' +
-        'bottom: 40px;\n' +
-        'left: 10px;\n' +
-        'padding: 5px 10px;\n' +
-        'margin: 0;\n' +
-        'font-size: 11px;\n' +
-        'line-height: 18px;\n' +
-        'border-radius: 3px;\n' +
-        'display: none;\n' +
-        '}')
 
     $('.coords').hide();
+    $('.latLonInput').hide();
+    $('.geocode').hide();
 
+    //variables
 
+    var tempHigh, tempLow, tempCur, tempAppCur, windSpd;
+
+    // lat/lon SA
     var lat = 29.4241;
     var lon = -98.4936;
 
-    $('#relocate').click(function () {
+    // lat/lon getter
+
+    //     lat = $('#latitude').val();
+    //     lon = $('#longitude').val();
+    //     map.setCenter([lon, lat]);
+    //     mapIt();
+    // });
+
+    function relocate() {
         lat = $('#latitude').val();
         lon = $('#longitude').val();
-        map.setCenter([lon,lat])
+        map.setCenter([lon, lat]);
         mapIt();
-    });
+    }
 
-    //  Mapbox //
+    //  Mapbox & token init//
     mapboxgl.accessToken = mapboxToken;
 
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/outdoors-v11',
-            zoom: 10,
-            scrollZoom: false,
-            center: [lon, lat]
-        });
-
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
+        zoom: 10,
+        scrollZoom: false,
+        center: [lon, lat]
+    });
 
     map.addControl(new mapboxgl.NavigationControl());
 
-    //weather obj array //
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    });
 
+    var popup = new mapboxgl.Popup()
+
+
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function (res) {
+                return res.json();
+            });
+    }
+
+    function geocodeResult() {
+        geocode($('#geocode').val(), mapboxToken).then(function (result) {
+            var placeName = result.features[0].place_name;
+            console.log(placeName);
+            lat = result.features[0].center[1];
+            lon = result.features[0].center[0];
+            map.setCenter([lon, lat]).setZoom(10);
+            marker.setLngLat([lon, lat]);
+            mapIt();
+            popup.setLngLat([lon, lat])
+                .setHTML("<p>"+ placeName +"</p>")
+                .addTo(map)
+            $('#geocode').val('')
+        });
+    }
+
+    //weather obj array //
     var weatherTypes = [
         {
             id: 0,
@@ -98,10 +127,9 @@ $(document).ready(function () {
             type: "partly-cloudy-night",
             icon: "icons/Weather (Blue Filled Line)/PNG/48/4894519 - cloud crescent half moon night sleep weather.png",
         }
-    ]
+    ];
 
     // dow process //
-
     var d = new Date();
     var weekday = new Array(7);
     weekday[0] = "Sunday";
@@ -112,8 +140,7 @@ $(document).ready(function () {
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
 
-// ajax api for darksky //
-
+    // ajax api for darksky //
     function mapIt() {
         var ajax = $.ajax('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyToken + '/' + lat + ',' + lon);
 
@@ -129,14 +156,20 @@ $(document).ready(function () {
                     var dailyObj = {};
 
                     dailyObj.id = x;
-                    dailyObj.summary = data.daily.data[x].summary
-                    dailyObj.temperatureHigh = data.daily.data[x].temperatureHigh
-                    dailyObj.temperatureLow = data.daily.data[x].temperatureLow
-                    dailyObj.windSpeed = data.daily.data[x].windSpeed
+                    dailyObj.summary = data.daily.data[x].summary;
+                    dailyObj.temperatureHigh = data.daily.data[x].temperatureHigh;
+                    dailyObj.temperatureLow = data.daily.data[x].temperatureLow;
+                    dailyObj.windSpeed = data.daily.data[x].windSpeed;
+                    dailyObj.spdType = 'MPH';
                     dailyObj.icon = data.daily.data[x].icon;
 
                     weatherArr.push(dailyObj);
                 }
+
+                tempCur = data.currently.temperature;
+                tempAppCur = data.currently.apparentTemperature;
+
+
 
                 function icon(darkSkyIcon) {
                     var testIcon = '';
@@ -144,63 +177,207 @@ $(document).ready(function () {
                         if (weatherType.type === darkSkyIcon) {
                             testIcon = weatherType.icon;
                         }
-                    })
+                    });
                     return testIcon;
                 }
 
-//****************************************************
+
+
                 function getWeather() {
-                    var current = '<div class="container scroll"><p><strong>CURRENTLY</strong>: FEELS LIKE: ' + data.currently.apparentTemperature.toFixed(0) + '°</p></div>';
-                    $('#current').html(current)
+                    // weather forecast generator and map center update
+
+
+                    var current = '<div class="container scroll"><p><strong>CURRENTLY</strong>:'+ data.currently.summary.toUpperCase() +', ' + tempCur.toFixed(0) +'°, FEELS LIKE: ' + tempAppCur.toFixed(0) + '°</p></div>';
+                    $('#current').html(current);
                     weatherArr.forEach(function (obj) {
                         var dayId = '#day' + obj.id;
                         var imgSrc = icon(obj.icon);
-                        var dow = '';
+                        var dow;
                         if (obj.id === 0) {
                             dow = 'TODAY';
-                        } else if(d.getDay() + obj.id === 7){
+                        } else if (d.getDay() + obj.id === 7) {
                             dow = 'SUNDAY';
-                        } else if(d.getDay() + obj.id === 8){
+                        } else if (d.getDay() + obj.id === 8) {
                             dow = 'MONDAY';
                         } else {
-                            dow = weekday[d.getDay() + obj.id].toUpperCase()
+                            dow = weekday[d.getDay() + obj.id].toUpperCase();
                         }
-                        $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + 'MPH</p>')
+
+
+
+                        if(dayId === '#day1') {
+                            $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img alt="weather-icon" src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + obj.spdType + '</p>');
+                        } else {
+                            $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img alt="weather-icon" src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + obj.spdType + '</p>');
+                        }
+
+                        // change units
+
+
+
+                        $('#si').on('click', function() {
+
+                            weatherArr = [];
+                            tempCur = (data.currently.temperature - 32) * 5 / 9;
+                            tempAppCur = (data.currently.apparentTemperature - 32) * 5 /9;
+
+                            // tempCur = ((tempCur - 32) * 5 / 9);
+                            // tempAppCur = ((tempAppCur - 32) * 5 / 9);
+                            for (var x = 0; x <= 2; x++) {
+                                var dailyObj = {};
+
+                                dailyObj.id = x;
+                                dailyObj.summary = data.daily.data[x].summary;
+                                dailyObj.temperatureHigh = (data.daily.data[x].temperatureHigh  -32) *5 / 9;
+                                dailyObj.temperatureLow = (data.daily.data[x].temperatureLow  -32) *5 / 9;
+                                dailyObj.windSpeed = data.daily.data[x].windSpeed * 1.60934;
+                                dailyObj.spdType = 'KPH';
+                                dailyObj.icon = data.daily.data[x].icon;
+
+                                weatherArr.push(dailyObj);
+                            }
+
+                            $('#si').hide();
+                            $('#imp').show();
+
+                            getWeather();
+                        })
+
+                        $('#imp').on('click', function (){
+
+                            weatherArr = [];
+                            tempCur = data.currently.temperature;
+                            tempAppCur = data.currently.apparentTemperature;
+
+                            // tempCur = tempCur * 9 / 5 + 32;
+                            // tempAppCur = tempAppCur * 9 / 5 + 32;
+                            for (var x = 0; x <= 2; x++) {
+                                var dailyObj = {};
+
+                                dailyObj.id = x;
+                                dailyObj.summary = data.daily.data[x].summary;
+                                dailyObj.temperatureHigh = data.daily.data[x].temperatureHigh;
+                                dailyObj.temperatureLow = data.daily.data[x].temperatureLow;
+                                dailyObj.windSpeed = data.daily.data[x].windSpeed;
+                                dailyObj.spdType = 'MPH';
+                                dailyObj.icon = data.daily.data[x].icon;
+
+                                weatherArr.push(dailyObj);
+                            }
+
+                            $('#imp').hide();
+                            $('#si').show();
+                            getWeather();
+                        })
+
+                        // $('#imp').hide()
                     })
                 }
 
                 getWeather();
-            })
 
 
-            // add markers to map
-            var marker = new mapboxgl.Marker({
-                draggable: true
-            })
-                .setLngLat([lon, lat])
-                .addTo(map);
+
+            });
+
+
+
+            // move markers to map
+            marker.setLngLat([lon, lat])
+
+                .addTo(map)
+
 
             function onDragEnd() {
                 var lngLat = marker.getLngLat();
-                // coordinates.style.display = 'block';
-                // coordinates.innerHTML =
-                //     'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-
                 lat = lngLat.lat;
                 lon = lngLat.lng;
                 $('.latLonInput').hide();
+                $('.searchBy').hide();
+                $('.geocode').hide();
                 $('.coords').show();
-                map.setCenter([lon,lat])
+                map.setCenter([lon, lat]);
+                mapIt();
             }
 
             marker.on('dragend', onDragEnd);
         })
 
-        $('#coords').click(function(){
-            $('.latLonInput').show();
-            $('.coords').hide();
-        })
-    };
-    mapIt()
+
+    }
+
+    $('#relocate').click(function () {
+        relocate()
+    });
+
+    // $('#geoSearch').click(function () {
+    //     geocodeResult();
+    // });
+    $('#geoSearch').click(geocodeResult());
+
+    $('#geocode').keypress(function (e) {
+        var code = e.key;
+        if (code === 'Enter') {
+            e.preventDefault();
+
+            if ($(this).val() !== '') {
+                geocodeResult();
+                $(this).val('');
+            }
+        }
+    })
+
+    $('#longitude').keypress(function (e) {
+        var code = e.key;
+        if (code === 'Enter') {
+            e.preventDefault();
+
+            if ($(this).val() !== '' && $('#latitude').val() !== '') {
+                relocate();
+                $('#longitude').val('');
+                $('#latitude').val('');
+            } else {
+                $('#latitude').focus();
+            }
+        }
+    })
+
+    $('#latitude').keypress(function (e) {
+        var code = e.key;
+        if (code === 'Enter') {
+            e.preventDefault();
+
+            if ($(this).val() !== '' && $('#longitude').val() !== '') {
+                relocate();
+                $('#longitude').val('');
+                $('#latitude').val('');
+            } else {
+                $('#longitude').focus();
+            }
+        }
+    })
+
+    // show/hide on
+
+    $('#imp').hide()
+
+    $('#coords').click(function () {
+        $('.searchBy').show();
+        $('.coords').hide();
+    });
+    $('#showCoord').click(function () {
+        $('.latLonInput').show();
+        $('.geocode').hide();
+        $('#latitude').focus();
+    });
+
+    $('#showLoc').click(function () {
+        $('.latLonInput').hide();
+        $('.geocode').show();
+        $('#geocode').focus();
+    });
+
+
+    mapIt();
 
 });
