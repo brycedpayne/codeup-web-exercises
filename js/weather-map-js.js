@@ -8,19 +8,11 @@ $(document).ready(function () {
 
     //variables
 
-    var tempHigh, tempLow, tempCur, tempAppCur, windSpd;
+    var tempCur, tempAppCur;
 
     // lat/lon SA
     var lat = 29.4241;
     var lon = -98.4936;
-
-    // lat/lon getter
-
-    //     lat = $('#latitude').val();
-    //     lon = $('#longitude').val();
-    //     map.setCenter([lon, lat]);
-    //     mapIt();
-    // });
 
     function relocate() {
         lat = $('#latitude').val();
@@ -30,6 +22,8 @@ $(document).ready(function () {
     }
 
     //  Mapbox & token init//
+
+
     mapboxgl.accessToken = mapboxToken;
 
 
@@ -47,7 +41,7 @@ $(document).ready(function () {
         draggable: true
     });
 
-    var popup = new mapboxgl.Popup()
+    var popup = new mapboxgl.Popup();
 
 
     function geocode(search, token) {
@@ -70,7 +64,7 @@ $(document).ready(function () {
             mapIt();
             popup.setLngLat([lon, lat])
                 .setHTML("<p>"+ placeName +"</p>")
-                .addTo(map)
+                .addTo(map);
             $('#geocode').val('')
         });
     }
@@ -187,7 +181,7 @@ $(document).ready(function () {
                     // weather forecast generator and map center update
 
 
-                    var current = '<div class="container scroll"><p><strong>CURRENTLY</strong>:'+ data.currently.summary.toUpperCase() +', ' + tempCur.toFixed(0) +'°, FEELS LIKE: ' + tempAppCur.toFixed(0) + '°</p></div>';
+                    var current = '<div class="container scroll"><p><strong><em>WEATHER MAP</em>...CURRENTLY</strong>: '+ data.currently.summary.toUpperCase() +', ' + tempCur.toFixed(0) +'°, FEELS LIKE: ' + tempAppCur.toFixed(0) + '°</p></div>';
                     $('#current').html(current);
                     weatherArr.forEach(function (obj) {
                         var dayId = '#day' + obj.id;
@@ -203,13 +197,7 @@ $(document).ready(function () {
                             dow = weekday[d.getDay() + obj.id].toUpperCase();
                         }
 
-
-
-                        if(dayId === '#day1') {
-                            $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img alt="weather-icon" src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + obj.spdType + '</p>');
-                        } else {
-                            $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img alt="weather-icon" src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + obj.spdType + '</p>');
-                        }
+                            $(dayId).html('<h4>' + dow + '</h4><h6>' + obj.summary.toUpperCase() + '</h6><img alt="weather-icon" src="' + imgSrc + '"><p>HIGH: ' + obj.temperatureHigh.toFixed(0) + '° / LOW: ' + obj.temperatureLow.toFixed(0) + '°</p><p>WIND: ' + obj.windSpeed.toFixed(2) + ' ' + obj.spdType + '</p>');
 
                         // change units
 
@@ -221,8 +209,6 @@ $(document).ready(function () {
                             tempCur = (data.currently.temperature - 32) * 5 / 9;
                             tempAppCur = (data.currently.apparentTemperature - 32) * 5 /9;
 
-                            // tempCur = ((tempCur - 32) * 5 / 9);
-                            // tempAppCur = ((tempAppCur - 32) * 5 / 9);
                             for (var x = 0; x <= 2; x++) {
                                 var dailyObj = {};
 
@@ -241,7 +227,7 @@ $(document).ready(function () {
                             $('#imp').show();
 
                             getWeather();
-                        })
+                        });
 
                         $('#imp').on('click', function (){
 
@@ -249,8 +235,6 @@ $(document).ready(function () {
                             tempCur = data.currently.temperature;
                             tempAppCur = data.currently.apparentTemperature;
 
-                            // tempCur = tempCur * 9 / 5 + 32;
-                            // tempAppCur = tempAppCur * 9 / 5 + 32;
                             for (var x = 0; x <= 2; x++) {
                                 var dailyObj = {};
 
@@ -270,7 +254,6 @@ $(document).ready(function () {
                             getWeather();
                         })
 
-                        // $('#imp').hide()
                     })
                 }
 
@@ -285,7 +268,7 @@ $(document).ready(function () {
             // move markers to map
             marker.setLngLat([lon, lat])
 
-                .addTo(map)
+                .addTo(map);
 
 
             function onDragEnd() {
@@ -325,7 +308,7 @@ $(document).ready(function () {
                 $(this).val('');
             }
         }
-    })
+    });
 
     $('#longitude').keypress(function (e) {
         var code = e.key;
@@ -340,7 +323,7 @@ $(document).ready(function () {
                 $('#latitude').focus();
             }
         }
-    })
+    });
 
     $('#latitude').keypress(function (e) {
         var code = e.key;
@@ -355,11 +338,11 @@ $(document).ready(function () {
                 $('#longitude').focus();
             }
         }
-    })
+    });
 
     // show/hide on
 
-    $('#imp').hide()
+    $('#imp').hide();
 
     $('#coords').click(function () {
         $('.searchBy').show();
