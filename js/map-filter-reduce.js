@@ -46,15 +46,17 @@ console.log(mapUsers);
 
 let reduceUsers = users.reduce((acc, user) => acc + user.yearsOfExperience,0);
 
-console.log(reduceUsers);
+console.log(reduceUsers/users.length);
 
 let longestEmail = users.reduce((acc,user) => user.email.length > acc.length ? user.email : acc,'');
 
 console.log(longestEmail);
 
-let reduceNames = users.reduce((acc,user) => acc + user.name + ', ','');
+// let reduceNames = users.reduce((acc,user) => acc + user.name + ', ','');
 
-console.log(`Your Codeup instructors are: ${reduceNames}`);
+let reduceNames = users.reduce((sentence,user) => sentence === '' ? user.name : sentence + ', ' + user.name,'');
+
+console.log(`Your Codeup instructors are: ${reduceNames}.`);
 
 let allLang = users.reduce((acc, user) => acc.concat(user.languages),[]).reduce((unique, lang) => unique.includes(lang) ? unique : [...unique, lang],[]);
 
